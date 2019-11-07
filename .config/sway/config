@@ -9,6 +9,7 @@ set $term alacritty
 set $menu bemenu-run -H 18 -i --fn $font 8
 set $internal_display LVDS-1
 set $external_display VGA-1
+set $lock swaylock
 
 ### Output configuration
 output * bg /home/$USER/.config/wallpaper.jpg fill
@@ -19,18 +20,14 @@ output $external_display {
 }
 
 ### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+#exec swayidle -w \
+#    timeout 3 'swaylock -f' \
+#    timeout 6 'swaymsg "output * dpms off"' \
+#    resume 'swaymsg "output * dpms on"' \
+#    before-sleep 'swaylock -f'
 
 ### Input configuration
 input type:keyboard {
@@ -53,6 +50,9 @@ bindsym --to-code {
     # Kill focused window
     $mod+q kill
 
+    # Lock window
+    $mod+Control+l exec $lock
+
     # Start your launcher
     $mod+d exec $menu
 
@@ -61,8 +61,6 @@ bindsym --to-code {
 
     # Exit sway (logs you out of your Wayland session)
     $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-
-    
 
     # Move your focus around
     $mod+$left focus left
@@ -148,9 +146,10 @@ bindsym --to-code {
     $mod+minus scratchpad show   
 }
 
+# Audio bindings
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1000
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1000
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 ### Resizing containers:
 mode "resize" {

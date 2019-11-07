@@ -1,0 +1,3 @@
+image=$HOME/.config/wallpaper.jpg 
+font=terminus 
+ignore-empty-password
