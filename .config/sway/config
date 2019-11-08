@@ -6,14 +6,13 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
-set $menu bemenu-run -H 18 -i --fn $font 8
+set $menu bemenu-run -i --fn $font 8 -n -l 3
 set $internal_display LVDS-1
 set $external_display VGA-1
 set $lock swaylock
 
 ### Output configuration
 output * bg /home/$USER/.config/wallpaper.jpg fill
-output $internal_display disable
 output $external_display {
   resolution 1920x1080
   pos 0 0
@@ -182,18 +181,20 @@ bindsym $mod+r mode "resize"
 
 ### Status Bar:
 bar {
-    position top
-    font $font 8
+    swaybar_command waybar
+
+    # position top
+    # font $font 8
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
 
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    # colors {
+    #     statusline #ffffff
+    #     background #323232
+    #     inactive_workspace #32323200 #32323200 #5c5c5c
+    # }
 }
 
 # Drag floating windows by holding down $mod and left mouse button.
