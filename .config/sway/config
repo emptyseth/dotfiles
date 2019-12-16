@@ -8,41 +8,41 @@
 
     # Dark colors 0-7, bright colors 8-15
     # Black
-    set $color0  #000203
-    set $color8  #012334
+    set $color0  #011c2a
+    set $color8  #013d5c
 
     # Red
-    set $color1  #138EAF
-    set $color9  #0BBFF0
+    set $color1  #15aad3
+    set $color9  #0bddff
 
     # Green
-    set $color2  #216378
-    set $color10 #2085A6
+    set $color2  #297b96
+    set $color10 #269fc6
 
     # Yellow
-    set $color3  #10819E
-    set $color11 #09AED8
+    set $color3  #129dc2
+    set $color11 #09ccfe
 
     # Blue
-    set $color4  #10738E
-    set $color12 #0A9BC3
+    set $color4  #128fb2
+    set $color12 #0ab9e9
 
     # Magenta
-    set $color5  #216E89
-    set $color13 #1F94BD
+    set $color5  #2786a9
+    set $color13 #23aedf
 
     # Cyan
-    set $color6  #11A3C9
-    set $color14 #07DCFF
+    set $color6  #13c1ed
+    set $color14 #07feff
     
     # White
-    set $color7  #7FCADE
-    set $color15 #AAFFFF
+    set $color7  #8de0f6
+    set $color15 #b9ffff
 
     # Special colors (base colors with transparency)
     set $col_bg_alpha  #2D2A2E77
-    set $color14_alpha #07DCFF99
-    set $color1_alpha  #138EAF99
+    set $color14_alpha #07feff99
+    set $color1_alpha  #15aad399
 
 #
 # Defines the color style for each window.
@@ -237,20 +237,21 @@ bindsym $mod+r mode "resize"
 
 ### Status Bar:
 bar {
-    swaybar_command waybar
+    # swaybar_command waybar
 
-    # position top
-    # font $font 8
-
+    position top
+    font $font 8
+    
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
 
-    # colors {
-    #     statusline #ffffff
-    #     background #323232
-    #     inactive_workspace #32323200 #32323200 #5c5c5c
-    # }
+    colors {
+        statusline $color10
+        background #000000
+        inactive_workspace $col_bg $col_bg $color8
+        focused_workspace $col_bg_alpha $col_bg_alpha $color14
+    }
 }
 
 # Drag floating windows by holding down $mod and left mouse button.

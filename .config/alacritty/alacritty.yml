@@ -171,26 +171,25 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x000203'
-    red:     '0x138EAF'
-    green:   '0x216378'
-    yellow:  '0x10819E'
-    blue:    '0x10738E'
-    magenta: '0x216E89'
-    cyan:    '0x11A3C9'
-    white:   '0x7FCADE'
+    black:   '0x011c2a'
+    red:     '0x15aad3'
+    green:   '0x297b96'
+    yellow:  '0x129dc2'
+    blue:    '0x128fb2'
+    magenta: '0x2786a9'
+    cyan:    '0x13c1ed'
+    white:   '0x8de0f6'
 
   # Bright colors
   bright:
-    black:   '0x012334'
-    red:     '0x0BBFF0'
-    green:   '0x2085A6'
-    yellow:  '0x09AED8'
-    blue:    '0x0A9BC3'
-    magenta: '0x1F94BD'
-    cyan:    '0x07DCFF'
-    white:   '0xAAFFFF'
-
+    black:   '0x013d5c'
+    red:     '0x0bddff'
+    green:   '0x269fc6'
+    yellow:  '0x09ccfe'
+    blue:    '0x0ab9e9'
+    magenta: '0x23aedf'
+    cyan:    '0x07feff'
+    white:   '0xb9ffff'
 
 # Visual Bell
 #
