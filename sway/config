@@ -9,7 +9,7 @@
 set $mod Mod4
 set $font terminus
 set $term alacritty
-set $menu bemenu-run -i -b -n -H 16 --nb=$col_bg --nf=$col_fg --tf=$color1 --hf=$color1_alpha --fn $font 8 
+set $menu bemenu-run -i -b -n -H 16 --nb=$col_bg --nf=$color8 --tf=$color14 --hf=$color14 --fn $font 8 
 set $internal_display LVDS-1
 set $external_display VGA-1
 set $lock swaylock
