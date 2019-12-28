@@ -1,0 +1,97 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+
+### Variables
+set $mod Mod4
+set $font terminus
+set $term alacritty
+set $menu bemenu-run -i -b -n -H 16 --nb=$col_bg --nf=$col_fg --tf=$color1 --hf=$color1_alpha --fn $font 8 
+set $internal_display LVDS-1
+set $external_display VGA-1
+set $lock swaylock
+set $wallpaper ~/.config/sway/images/wallpaper.jpg
+set $lockscreenbg ~/.config/sway/images/wallpaper.jpg
+
+#
+# Colors
+#
+    # Set of colors used in the theme.
+    # Background and foreground
+    set $col_bg  #2d2a2e
+    set $col_fg  #fcfcfa
+
+    # Dark colors 0-7, bright colors 8-15
+    # Black
+    set $color0  #011c2a
+    set $color8  #013d5c
+
+    # Red
+    set $color1  #15aad3
+    set $color9  #0bddff
+
+    # Green
+    set $color2  #297b96
+    set $color10 #269fc6
+
+    # Yellow
+    set $color3  #129dc2
+    set $color11 #09ccfe
+
+    # Blue
+    set $color4  #128fb2
+    set $color12 #0ab9e9
+
+    # Magenta
+    set $color5  #2786a9
+    set $color13 #23aedf
+
+    # Cyan
+    set $color6  #13c1ed
+    set $color14 #07feff
+    
+    # White
+    set $color7  #8de0f6
+    set $color15 #b9ffff
+
+    # Special colors (base colors with transparency)
+    set $col_bg_alpha  #2D2A2E77
+    set $color14_alpha #07feff99
+    set $color1_alpha  #15aad399
+
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# Disable xwayland
+# xwayland disable
+
+#
+# Defines the geometry of every window and its alignment regarding other windows and the workspace.
+# Window borders
+    default_border		pixel	2
+    default_floating_border	pixel	2
+    titlebar_border_thickness 		2
+
+# Window borders behaviour
+    hide_edge_borders		none
+    smart_borders		off
+
+# Gaps between windows
+    gaps	outer	4
+    gaps	inner	6
+
+# Gaps behviour
+    smart_gaps	off
+
+# Fibonacci mod
+# for_window [class=".*"] split toggle
+# for_window [app_id=".*"] split toggle
+
+include ~/.config/sway/config.d/*

@@ -1,0 +1,2 @@
+# Lock the screen
+bindsym $mod+l exec "swaylock -e -f -i $lockscreenbg"
