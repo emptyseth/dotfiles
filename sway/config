@@ -7,9 +7,9 @@
 
 ### Variables
 set $mod Mod4
-set $font terminus
+set $font terminus 8
 set $term alacritty
-set $menu bemenu-run -i -b -n -H 16 --nb=$col_bg --nf=$color8 --tf=$color14 --hf=$color14 --fn $font 8 
+set $menu bemenu-run -i -n -H 16 --nb=$col_bg --nf=$color8 --tf=$color14 --hf=$color14 --fn $font 8 
 set $internal_display LVDS-1
 set $external_display VGA-1
 set $lock swaylock
@@ -84,8 +84,8 @@ floating_modifier $mod normal
     smart_borders		off
 
 # Gaps between windows
-    gaps	outer	4
-    gaps	inner	6
+    gaps	outer	2
+    gaps	inner	4
 
 # Gaps behviour
     smart_gaps	off

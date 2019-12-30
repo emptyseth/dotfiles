@@ -103,18 +103,18 @@ font:
     family: terminus
 
     # The `style` can be specified to pick a specific face.
-    style: Bold
+    style: regular
 
   # Bold font face
-  #bold:
+  bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: terminus
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold
+    style: Bold
 
   # Italic font face
   #italic:
@@ -134,7 +134,7 @@ font:
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 1
-    y: 0
+    y: 2
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -166,30 +166,30 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x2D2A2E'
-    foreground: '0xFCFCFA'
+    background: '#2d2a2e'
+    foreground: '#fcfcfa'
 
   # Normal colors
   normal:
-    black:   '0x011c2a'
-    red:     '0x15aad3'
-    green:   '0x297b96'
-    yellow:  '0x129dc2'
-    blue:    '0x128fb2'
-    magenta: '0x2786a9'
-    cyan:    '0x13c1ed'
-    white:   '0x8de0f6'
+    black:   '#011c2a'
+    red:     '#15aad3'
+    green:   '#297b96'
+    yellow:  '#129dc2'
+    blue:    '#128fb2'
+    magenta: '#2786a9'
+    cyan:    '#13c1ed'
+    white:   '#8de0f6'
 
   # Bright colors
   bright:
-    black:   '0x013d5c'
-    red:     '0x0bddff'
-    green:   '0x269fc6'
-    yellow:  '0x09ccfe'
-    blue:    '0x0ab9e9'
-    magenta: '0x23aedf'
-    cyan:    '0x07feff'
-    white:   '0xb9ffff'
+    black:   '#013d5c'
+    red:     '#0bddff'
+    green:   '#269fc6'
+    yellow:  '#09ccfe'
+    blue:    '#0ab9e9'
+    magenta: '#23aedf'
+    cyan:    '#07feff'
+    white:   '#b9ffff'
 
 # Visual Bell
 #
