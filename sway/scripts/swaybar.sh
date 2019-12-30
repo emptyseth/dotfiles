@@ -104,10 +104,12 @@ NETWORK_INACTIVE_ICON="⛔"
 
 get_network()
 {
-    network=$(ip route get 1.1.1.1 | grep -Po '(?<=dev\s)\w+' | cut -f1 -d ' ')
+    network=$(curl -s ifconfig.co)
 
-    if ! [ $network ]
+    if [ $network ]
     then
+        echo "$network"
+    else
         echo "$NETWORK_INACTIVE_ICON "
     fi
 }
@@ -135,4 +137,4 @@ network_status=$(get_network)
 current_date=$(get_date)
 current_language=$(get_language)
 
-echo "$current_language  |  $wifi_status  $ethernet_status  $network_status|  $volume_status  |  $battery_status  |  $current_date "
+echo "$current_language  |  $wifi_status  $ethernet_status  $network_status  |  $volume_status  |  $battery_status  |  $current_date "
