@@ -19,24 +19,24 @@ get_battery()
     then
 		capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 		charging=$(cat /sys/class/power_supply/BAT0/status)
-		if [[ "$charging" == "Charging" ]]; 
+		if [ "$charging" = "Charging" ]; 
         then
 			ICON="$CHARGING_ICON"
-		elif [[ $capacity -le 25 ]]; 
+		elif [ $capacity -le 25 ]; 
         then
 			ICON="$WARNING_ICON"
 		fi
 
-		if [[ $capacity -ge $FULL_AT ]]; 
+		if [ $capacity -ge $FULL_AT ]; 
         then
 			BAT_ICON=$BATTERY_FULL_ICON
-		elif [[ $capacity -le 25 ]]; 
+		elif [ $capacity -le 25 ]; 
         then
 			BAT_ICON=$BATTERY_4_ICON
-		elif [[ $capacity -le 60 ]]; 
+		elif [ $capacity -le 60 ]; 
         then
 			BAT_ICON=$BATTERY_3_ICON
-		elif [[ $capacity -le $FULL_AT ]]; 
+		elif [ $capacity -le $FULL_AT ]; 
         then
 			BAT_ICON=$BATTERY_2_ICON
 		fi
