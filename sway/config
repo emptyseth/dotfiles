@@ -58,7 +58,7 @@ set $lockscreenbg ~/.config/sway/images/wallpaper.jpg
     set $color15 #b9ffff
 
     # Special colors (base colors with transparency)
-    set $col_bg_alpha  #2D2A2E77
+    set $col_bg_alpha  #2d2a2e77
     set $color14_alpha #07feff99
     set $color1_alpha  #15aad399
 
@@ -75,9 +75,9 @@ floating_modifier $mod normal
 #
 # Defines the geometry of every window and its alignment regarding other windows and the workspace.
 # Window borders
-    default_border		pixel	2
-    default_floating_border	pixel	2
-    titlebar_border_thickness 		2
+    default_border		pixel	1
+    default_floating_border	pixel	1
+    titlebar_border_thickness 		1
 
 # Window borders behaviour
     hide_edge_borders		none

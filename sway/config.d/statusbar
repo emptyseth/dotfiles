@@ -12,7 +12,7 @@ bar {
     status_command while ~/.config/sway/scripts/swaybar.sh; do sleep 1; done
 
     colors {
-        statusline $color10
+        statusline $color14
         background #000000
         inactive_workspace $col_bg $col_bg $color8
         focused_workspace $col_bg_alpha $col_bg_alpha $color14
