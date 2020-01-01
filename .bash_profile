@@ -19,6 +19,8 @@ fi
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
     export BEMENU_BACKEND="wayland"
     export MOZ_ENABLE_WAYLAND="1"
+    #export QT_QPA_PLATFORM="wayland-egl"
 
-    XKB_DEFAULT_LAYOUT=us exec sway
+    export XKB_DEFAULT_LAYOUT=us 
+    exec sway
 fi
