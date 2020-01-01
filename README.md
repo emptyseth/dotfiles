@@ -1,6 +1,7 @@
 # Dotfiles
 Dotfiles for my Wayland based rice
 
-- **WM:** Sway
-- **TERM:** Alacritty
-- **AM:** Bemenu
+- **Windows Manager:** Sway
+- **Terminal:** Alacritty
+- **Application Manager:** Bemenu
+- **Notifications:** Maco

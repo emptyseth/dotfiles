@@ -97,4 +97,7 @@ floating_modifier $mod normal
 # Start pulseaudio daemon
 exec --no-startup-id pulseaudio 
 
+# Start notification daemon
+exec mako --font $font
+
 include ~/.config/sway/config.d/*
