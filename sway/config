@@ -94,4 +94,7 @@ floating_modifier $mod normal
 # for_window [class=".*"] split toggle
 # for_window [app_id=".*"] split toggle
 
+# Start pulseaudio daemon
+exec --no-startup-id pulseaudio 
+
 include ~/.config/sway/config.d/*
