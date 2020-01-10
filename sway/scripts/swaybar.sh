@@ -19,6 +19,7 @@ get_battery()
     then
 		capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 		charging=$(cat /sys/class/power_supply/BAT0/status)
+
 		if [ "$charging" = "Charging" ]; 
         then
 			ICON="$CHARGING_ICON"
@@ -41,7 +42,7 @@ get_battery()
 			BAT_ICON=$BATTERY_2_ICON
 		fi
 	fi
-	echo "$ICON$BAT_ICON  $capacity%"
+	echo "$ICON $BAT_ICON  $capacity%"
 }
 
 
@@ -72,16 +73,16 @@ WIFI_LOW_ICON=''
 
 get_wifi() 
 {
-        if grep -q wl* "/proc/net/wireless"; 
-        then
-            # Wifi quality percentage
-            percentage=$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70)}'| xargs)
-            case $percentage in
-                    100|9[0-9]|8[0-9]|7[0-9])       echo "$WIFI_FULL_ICON" ;;
-                    6[0-9]|5[0-9]|4[0-9]|3[0-9])    echo "$WIFI_MID_ICON" ;;
-                    2[0-9]|1[0-9]|[0-9])            echo "$WIFI_LOW_ICON" ;;
-            esac
-        fi
+    if grep -q wl* "/proc/net/wireless"; 
+    then
+        # Wifi quality percentage
+        percentage=$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70)}'| xargs)
+        case $percentage in
+                100|9[0-9]|8[0-9]|7[0-9])       echo "$WIFI_FULL_ICON" ;;
+                6[0-9]|5[0-9]|4[0-9]|3[0-9])    echo "$WIFI_MID_ICON" ;;
+                2[0-9]|1[0-9]|[0-9])            echo "$WIFI_LOW_ICON" ;;
+        esac
+    fi
 }
 
 # Prints out if there is an ethernet cable connected
@@ -90,9 +91,9 @@ ETHERNET_ICON=''
 
 get_ethernet()
 {
-    if [ -d /sys/class/net/eth? ]; 
+    if [ -d /sys/class/net/enp0s25 ]; 
     then
-        if [ "$(cat /sys/class/net/eth?/carrier)" == "1" ]; 
+        if [ "$(cat /sys/class/net/enp0s25/carrier)" == "1" ]; 
         then
             echo "$ETHERNET_ICON"
         fi
@@ -111,10 +112,11 @@ get_date()
 # Prints out network status
 
 NETWORK_INACTIVE_ICON="⛔"
+IP_SERVICE="ifconfig.me"
 
 get_network()
 {
-    current_ip=$(curl -s ifconfig.co)
+    current_ip=$(curl -s $IP_SERVICE)
 
     if [ $current_ip ];
     then
