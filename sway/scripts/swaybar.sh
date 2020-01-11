@@ -22,10 +22,10 @@ get_battery()
 
 		if [ "$charging" = "Charging" ]; 
         then
-			ICON="$CHARGING_ICON"
+			ICON="$CHARGING_ICON "
 		elif [ $capacity -le 25 ]; 
         then
-			ICON="$WARNING_ICON"
+			ICON="$WARNING_ICON "
 		fi
 
 		if [ $capacity -ge $FULL_AT ]; 
@@ -42,7 +42,7 @@ get_battery()
 			BAT_ICON=$BATTERY_2_ICON
 		fi
 	fi
-	echo "$ICON $BAT_ICON  $capacity%"
+	echo "$ICON$BAT_ICON  $capacity%"
 }
 
 
@@ -91,12 +91,9 @@ ETHERNET_ICON=''
 
 get_ethernet()
 {
-    if [ -d /sys/class/net/enp0s25 ]; 
+    if [ "$(cat /sys/class/net/enp0s25/carrier)" = "1" ]; 
     then
-        if [ "$(cat /sys/class/net/enp0s25/carrier)" == "1" ]; 
-        then
-            echo "$ETHERNET_ICON"
-        fi
+        echo "$ETHERNET_ICON"
     fi
 }
 
@@ -127,7 +124,7 @@ get_network()
             network_status=$(get_ethernet)
         fi
 
-        echo "$network_status  $current_ip"
+        echo "$network_status $current_ip"
     else
         echo "$NETWORK_INACTIVE_ICON"
     fi
