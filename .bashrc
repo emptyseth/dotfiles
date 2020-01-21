@@ -13,4 +13,4 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-PS1='\[$(tput bold)\]\[\033[38;5;14m\][\u@\h: \w]\$ '
+PS1='\[$(tput bold)\][\u@\h: \w]\$ '

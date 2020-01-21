@@ -16,6 +16,17 @@ set $lock swaylock
 set $wallpaper ~/.config/sway/images/wallpaper.jpg
 set $lockscreenbg ~/.config/sway/images/wallpaper.jpg
 
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+
 #
 # Colors
 #
@@ -93,6 +104,10 @@ floating_modifier $mod normal
 # Fibonacci mod
 # for_window [class=".*"] split toggle
 # for_window [app_id=".*"] split toggle
+
+# Disable idle when firefox is fullscreen
+for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="mpv"] inhibit_idle
 
 # Start pulseaudio daemon
 exec --no-startup-id pulseaudio 
