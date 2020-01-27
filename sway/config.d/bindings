@@ -22,11 +22,8 @@ bindsym --to-code {
     # Lock window
     $mod+Control+l exec $lock
 
-    # Enable internal display
-    $mod+Control+e exec swaymsg output $internal_display enable
-
-    # Disable internal display
-    $mod+Control+d exec swaymsg output $internal_display disable
+    # Toggle internal display
+    $mod+Control+e exec swaymsg output $internal_display toggle
 
 #
 # Moving around:

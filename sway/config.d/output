@@ -12,5 +12,4 @@
 output * bg $wallpaper fill
 output $external_display {
   resolution 1920x1080
-  pos 0 0
 }
