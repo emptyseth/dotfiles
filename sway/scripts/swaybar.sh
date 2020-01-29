@@ -73,7 +73,7 @@ WIFI_LOW_ICON=''
 
 get_wifi() 
 {
-    if grep -q wl* "/proc/net/wireless"; 
+    if [ "$(cat /sys/class/net/wlp3s0/carrier)" = "1" ]; 
     then
         # Wifi quality percentage
         percentage=$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70)}'| xargs)
@@ -109,11 +109,11 @@ get_date()
 # Prints out network status
 
 NETWORK_INACTIVE_ICON="⛔"
-IP_SERVICE="ifconfig.me"
 
 get_network()
 {
-    current_ip=$(curl -s $IP_SERVICE)
+    # dig available in bind-utils package (voidlinux)
+    current_ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
     if [ $current_ip ];
     then
@@ -145,10 +145,35 @@ get_language()
 }
 
 
+# Toggles internal display depending on external display plugged in
+
+EXTERNAL_DISPLAY_COMMAND="enable"
+
+toggle_internal_display()
+{
+    external_display="$(swaymsg -r -t get_outputs | awk '/VGA-1/')"
+    internal_display="$(swaymsg -r -t get_outputs | awk '/LVDS-1/')"
+
+    if [ "$external_display" ]; 
+    then
+        if [ "$internal_display" ];
+        then
+            echo "$(swaymsg output LVDS-1 disable)"
+        fi
+    else
+        if ! [ "$internal_display" ];
+        then
+            echo "$(swaymsg output LVDS-1 enable)"
+        fi
+    fi
+}
+
+network_status=$(get_network)
 battery_status=$(get_battery)
 volume_status=$(get_volume)
-network_status=$(get_network)
 current_date=$(get_date)
 current_language=$(get_language)
+
+# $(toggle_internal_display)
 
 echo "$current_language  |  $network_status  |  $volume_status  |  $battery_status  |  $current_date "
