@@ -122,8 +122,8 @@ get_network()
 
 get_language()
 {
-    language=$(swaymsg -r -t get_inputs | awk '/1:1:AT_Translated_Set_2_keyboard/;/xkb_active_layout_name/' | grep -A1 '\b1:1:AT_Translated_Set_2_keyboard\b' | grep "xkb_active_layout_name" | awk -F '"' '{print $4}')
-
+    language=$(swaymsg -r -t get_inputs | grep -m 1 'xkb_active_layout_name' | awk -F '"' '{print $4}')
+    
     if [ "$language" = "Russian" ]; then
         echo "РУС"
     else
@@ -136,7 +136,7 @@ get_language()
 
 is_output_enabled()
 {
-    echo $(swaymsg -t get_outputs | awk '/name/;/active/' | awk "f {print; exit} /$1/ {f=1}" | grep true)
+    echo $(swaymsg -t get_outputs | awk '/name/;/active/' | grep -A1 $1 | grep true)
 }
 
 # Enables internal display if external display is unnplugged
