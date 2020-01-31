@@ -1,5 +1,5 @@
-font=terminus 8
+font=$FONT
 anchor=bottom-right
-# background-color=#2d2a2e
-background-color=#000000
+background-color=#2d2a2e
 border-color=#07feff
+default-timeout=7000

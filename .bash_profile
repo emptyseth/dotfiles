@@ -3,6 +3,9 @@
 export BROWSER="firefox"
 export TERMINAL="alacritty"
 export FILE="ranger"
+export FONT="terminus"
+export INTERNAL_DISPLAY="LVDS-1"
+export EXTERNAL_DISPLAY="VGA-1"
 
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"     # begin blink
@@ -13,8 +16,6 @@ export LESS_TERMCAP_se="$(printf '%b' '[0m')"        # reset reverse video
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"     # begin underline
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"        # reset underline
 
-export INTERNAL_DISPLAY="LVDS-1"
-export EXTERNAL_DISPLAY="VGA-1"
 
 # Get the aliases and functions
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
