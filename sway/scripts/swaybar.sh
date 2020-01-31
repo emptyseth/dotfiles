@@ -15,30 +15,23 @@ get_battery()
 {
 	# The vast majority of people only use one battery.
 
-	if [ -d /sys/class/power_supply/BAT0 ]; 
-    then
+	if [ -d /sys/class/power_supply/BAT0 ]; then
 		capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 		charging=$(cat /sys/class/power_supply/BAT0/status)
 
-		if [ "$charging" = "Charging" ]; 
-        then
+		if [ "$charging" = "Charging" ]; then
 			ICON="$CHARGING_ICON "
-		elif [ $capacity -le 25 ]; 
-        then
+		elif [ $capacity -le 25 ]; then
 			ICON="$WARNING_ICON "
 		fi
 
-		if [ $capacity -ge $FULL_AT ]; 
-        then
+		if [ $capacity -ge $FULL_AT ]; then
 			BAT_ICON=$BATTERY_FULL_ICON
-		elif [ $capacity -le 25 ]; 
-        then
+		elif [ $capacity -le 25 ]; then
 			BAT_ICON=$BATTERY_4_ICON
-		elif [ $capacity -le 60 ]; 
-        then
+		elif [ $capacity -le 60 ]; then
 			BAT_ICON=$BATTERY_3_ICON
-		elif [ $capacity -le $FULL_AT ]; 
-        then
+		elif [ $capacity -le $FULL_AT ]; then
 			BAT_ICON=$BATTERY_2_ICON
 		fi
 	fi
@@ -55,9 +48,8 @@ get_volume(){
         active_sink=$(pacmd list-sinks | awk '/* index:/{print $3}')
         curStatus=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | awk '/muted/{ print $2}')
         volume=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | grep 'volume:' | grep -E -v 'base volume:' | awk -F : '{print $3}' | grep -o -P '.{0,3}%'| sed s/.$// | tr -d ' ')
-
-        if [ "${curStatus}" = 'yes' ];
-        then
+        
+        if [ "${curStatus}" = 'yes' ]; then
             echo "$VOLUME_MUTED_ICON  $volume%"
         else
             echo "$VOLUME_ON_ICON  $volume%"
@@ -73,8 +65,7 @@ WIFI_LOW_ICON=''
 
 get_wifi() 
 {
-    if [ "$(cat /sys/class/net/wlp3s0/carrier)" = "1" ]; 
-    then
+    if [ "$(cat /sys/class/net/wlp3s0/carrier)" = "1" ]; then
         # Wifi quality percentage
         percentage=$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70)}'| xargs)
         case $percentage in
@@ -91,8 +82,7 @@ ETHERNET_ICON=''
 
 get_ethernet()
 {
-    if [ "$(cat /sys/class/net/enp0s25/carrier)" = "1" ]; 
-    then
+    if [ "$(cat /sys/class/net/enp0s25/carrier)" = "1" ]; then
         echo "$ETHERNET_ICON"
     fi
 }
@@ -115,12 +105,10 @@ get_network()
     # dig available in bind-utils package (voidlinux)
     current_ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
-    if [ $current_ip ];
-    then
+    if [ $current_ip ]; then
         network_status=$(get_wifi)
 
-        if ! [ $network_status ];
-        then
+        if ! [ $network_status ]; then
             network_status=$(get_ethernet)
         fi
 
@@ -136,8 +124,7 @@ get_language()
 {
     language=$(swaymsg -r -t get_inputs | awk '/1:1:AT_Translated_Set_2_keyboard/;/xkb_active_layout_name/' | grep -A1 '\b1:1:AT_Translated_Set_2_keyboard\b' | grep "xkb_active_layout_name" | awk -F '"' '{print $4}')
 
-    if [ "$language" = "Russian" ];
-    then
+    if [ "$language" = "Russian" ]; then
         echo "РУС"
     else
         echo "ENG"
@@ -145,25 +132,27 @@ get_language()
 }
 
 
-# Toggles internal display depending on external display plugged in
+# Checks passed output is enabled
 
-EXTERNAL_DISPLAY_COMMAND="enable"
-
-toggle_internal_display()
+is_output_enabled()
 {
-    external_display="$(swaymsg -r -t get_outputs | awk '/VGA-1/')"
-    internal_display="$(swaymsg -r -t get_outputs | awk '/LVDS-1/')"
+    echo $(swaymsg -t get_outputs | awk '/name/;/active/' | awk "f {print; exit} /$1/ {f=1}" | grep true)
+}
 
-    if [ "$external_display" ]; 
-    then
-        if [ "$internal_display" ];
-        then
-            echo "$(swaymsg output LVDS-1 disable)"
-        fi
-    else
-        if ! [ "$internal_display" ];
-        then
-            echo "$(swaymsg output LVDS-1 enable)"
+# Enables internal display if external display is unnplugged
+
+EXTERNAL_DISPLAY='VGA-1'
+INTERNAL_DISPLAY='LVDS-1'
+
+enable_internal_display()
+{
+    external_display_enabled=$(is_output_enabled $EXTERNAL_DISPLAY)
+
+    if ! [ "$external_display_enabled" ]; then
+        internal_display_enabled=$(is_output_enabled $INTERNAL_DISPLAY)
+
+        if ! [ "$internal_display_enabled" ]; then
+            echo "$(swaymsg output $INTERNAL_DISPLAY enable)"
         fi
     fi
 }
@@ -174,6 +163,6 @@ volume_status=$(get_volume)
 current_date=$(get_date)
 current_language=$(get_language)
 
-# $(toggle_internal_display)
+$(enable_internal_display)
 
 echo "$current_language  |  $network_status  |  $volume_status  |  $battery_status  |  $current_date "
