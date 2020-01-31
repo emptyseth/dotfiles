@@ -141,9 +141,6 @@ is_output_enabled()
 
 # Enables internal display if external display is unnplugged
 
-EXTERNAL_DISPLAY='VGA-1'
-INTERNAL_DISPLAY='LVDS-1'
-
 enable_internal_display()
 {
     external_display_enabled=$(is_output_enabled $EXTERNAL_DISPLAY)
