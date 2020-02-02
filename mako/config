@@ -1,4 +1,4 @@
-font=$FONT
+font=terminus 10
 anchor=bottom-right
 background-color=#2d2a2e
 border-color=#07feff
