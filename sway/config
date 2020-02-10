@@ -81,7 +81,7 @@ set $ws10 10
 floating_modifier $mod normal
 
 # Disable xwayland
-# xwayland disable
+xwayland disable
 
 #
 # Defines the geometry of every window and its alignment regarding other windows and the workspace.
@@ -112,6 +112,9 @@ for_window [app_id="mpv"] inhibit_idle
 
 # Start pulseaudio daemon
 exec --no-startup-id pulseaudio 
+
+# Start dbus-daemon
+exec --no-startup-id  dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 
 # Start notification daemon
 exec mako

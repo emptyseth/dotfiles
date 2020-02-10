@@ -33,6 +33,6 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
     export MOZ_ENABLE_WAYLAND="1"
     export QT_QPA_PLATFORM="wayland-egl"
     export XKB_DEFAULT_LAYOUT=us 
-    
+
     exec sway
 fi
