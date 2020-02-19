@@ -32,46 +32,46 @@ set $ws10 10
 #
     # Set of colors used in the theme.
     # Background and foreground
-    set $col_bg  #2d2a2e
-    set $col_fg  #fcfcfa
+    set $col_bg  #3C4C55
+    set $col_fg  #C5D4DD
 
     # Dark colors 0-7, bright colors 8-15
     # Black
-    set $color0  #011c2a
-    set $color8  #013d5c
+    set $color0  #3C4C55
+    set $color8  #899BA6
 
     # Red
-    set $color1  #15aad3
-    set $color9  #0bddff
+    set $color1  #DF8C8C
+    set $color9  #F2C38F
 
     # Green
-    set $color2  #297b96
-    set $color10 #269fc6
+    set $color2  #A8CE93
+    set $color10 #A8CE93
 
     # Yellow
-    set $color3  #129dc2
-    set $color11 #09ccfe
+    set $color3  #DADA93
+    set $color11 #DADA93
 
     # Blue
-    set $color4  #128fb2
-    set $color12 #0ab9e9
+    set $color4  #83AFE5
+    set $color12 #83AFE5
 
     # Magenta
-    set $color5  #2786a9
-    set $color13 #23aedf
+    set $color5  #9A93E1
+    set $color13 #D18EC2
 
     # Cyan
-    set $color6  #13c1ed
-    set $color14 #07feff
-    
+    set $color6  #7FC1CA
+    set $color14 #7FC1CA
+
     # White
-    set $color7  #8de0f6
-    set $color15 #b9ffff
+    set $color7  #C5D4DD
+    set $color15 #E6EEF3
 
     # Special colors (base colors with transparency)
-    set $col_bg_alpha  #2d2a2e77
-    set $color14_alpha #07feff99
-    set $color1_alpha  #15aad399
+    set $col_bg_alpha  #3C4C5577
+    set $color14_alpha #7FC1CA99
+    set $color1_alpha  #DF8C8C99
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -111,7 +111,7 @@ for_window [app_id="chromium"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle
 
 # Start pulseaudio daemon
-exec --no-startup-id pulseaudio 
+exec --no-startup-id pulseaudio
 
 # Start dbus-daemon
 exec --no-startup-id  dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus

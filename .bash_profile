@@ -2,6 +2,7 @@
 
 export BROWSER="firefox"
 export TERMINAL="alacritty"
+export EDITOR="nvim"
 export FILE="ranger"
 export INTERNAL_DISPLAY="LVDS-1"
 export EXTERNAL_DISPLAY="VGA-1"

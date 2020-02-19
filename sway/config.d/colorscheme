@@ -2,7 +2,7 @@
 # Defines the color style for each window.
 # The format is client.<class> <border> <background> <text> <indicator> <child_border>
 # Client indicates any window. For more informations, see man 5 sway.
-    client.unfocused		$color8 	    $color8		    $col_fg	 $color8	    $color8
-    client.focused_inactive	$col_bg		    $col_bg		    $col_fg	 $col_bg_alpha	$col_bg_alpha
-    client.focused		    $color14	    $color14	    $col_fg	 $color14	    $color14
-    client.urgent		    $color1_alpha	$color1_alpha   $col_fg  $color1_alpha	$color1_alpha
+    client.unfocused		$color8 	    $color8		$col_fg     $color8	        $color8
+    client.focused_inactive	$col_bg		    $col_bg		$col_fg     $col_bg_alpha	$col_bg_alpha
+    client.focused		$color14	    $color14	        $col_fg     $color14	        $color14
+    client.urgent		$color1_alpha       $color1_alpha       $col_fg     $color1_alpha	$color1_alpha
