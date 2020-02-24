@@ -1,5 +1,5 @@
-font=PT Mono 10
+font=terminus 8
 anchor=bottom-right
-background-color=#3C4C55
-border-color=#7FC1CA99
+background-color=#3C4C5577
+border-color=#7FC1CA
 default-timeout=7000

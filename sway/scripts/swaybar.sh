@@ -161,4 +161,4 @@ current_language=$(get_language)
 
 $(enable_internal_display)
 
-echo "$current_language  |  $network_status  |  $volume_status  |  $battery_status  |  $current_date "
+echo "$current_date                                                                    $current_language   $network_status   $volume_status   $battery_status"

@@ -9,7 +9,7 @@
 set $mod Mod4
 set $font terminus 8
 set $term $TERMINAL
-set $menu bemenu-run -i -n -H 16 --nb=$col_bg --nf=$color8 --tf=$color14 --hf=$color14 --fn $font
+set $menu bemenu-run -i -n -H 16 --nb=$col_bg --nf=$color8 --tf=$color14 --hf=$color14 --fn=$font
 set $internal_display $INTERNAL_DISPLAY
 set $external_display $EXTERNAL_DISPLAY
 set $lock swaylock
@@ -81,7 +81,7 @@ set $ws10 10
 floating_modifier $mod normal
 
 # Disable xwayland
-xwayland disable
+# xwayland disable
 
 #
 # Defines the geometry of every window and its alignment regarding other windows and the workspace.
@@ -96,7 +96,7 @@ xwayland disable
 
 # Gaps between windows
     gaps	outer	2
-    gaps	inner	4
+    gaps	inner	5
 
 # Gaps behviour
     smart_gaps	off
