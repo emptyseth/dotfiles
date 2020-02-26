@@ -28,6 +28,9 @@ bindsym --to-code {
     # Toggle VPN
     $mod+p exec bash ~/.config/sway/scripts/vpn.sh
 
+    # Take a screenshot
+    $mod+g exec grim
+
 #
 # Moving around:
 #

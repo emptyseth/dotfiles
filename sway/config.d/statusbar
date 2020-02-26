@@ -5,16 +5,16 @@
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-    font terminus 8
+    font $font
     tray_output none
     gaps 8 6 0 6
-    
+
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while ~/.config/sway/scripts/swaybar.sh; do sleep 0.5; done
 
     colors {
-        background $col_bg_alpha
+        background $col_bg_50
         statusline $color14
         inactive_workspace $col_bg_alpha $col_bg_alpha $color8
         focused_workspace $color14 $col_bg_alpha $color14

@@ -72,6 +72,7 @@ set $ws10 10
     set $col_bg_alpha  #3C4C5577
     set $color14_alpha #7FC1CA99
     set $color1_alpha  #DF8C8C99
+    set $col_bg_50  #3C4C5550
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.

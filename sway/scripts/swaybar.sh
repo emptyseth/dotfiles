@@ -131,15 +131,31 @@ get_language()
 }
 
 
-# Checks passed output is enabled
+# Prints the total ram and used ram in Mb
 
+RAM_ICON=''
+get_ram()
+{
+    used_ram=$(free -mh --si | awk '/^Mem:/{print $3}')
+
+    echo "$RAM_ICON $used_ram"
+}
+
+TEMP_ICON=''
+get_temperature()
+{
+    temperature=$(acpi -t | awk '{print $4}')
+    echo "$TEMP_ICON $temperature°C"
+}
+
+
+# Checks passed output is enabled
 is_output_enabled()
 {
     echo $(swaymsg -t get_outputs | awk '/name/;/active/' | grep -A1 $1 | grep true)
 }
 
 # Enables internal display if external display is unnplugged
-
 enable_internal_display()
 {
     external_display_enabled=$(is_output_enabled $EXTERNAL_DISPLAY)
@@ -158,7 +174,9 @@ battery_status=$(get_battery)
 volume_status=$(get_volume)
 current_date=$(get_date)
 current_language=$(get_language)
+current_ram=$(get_ram)
+current_temperature=$(get_temperature)
 
 $(enable_internal_display)
 
-echo "$current_date                                                                    $current_language   $network_status   $volume_status   $battery_status"
+echo "$current_date                                                $current_language   $current_ram   $current_temperature   $network_status   $volume_status   $battery_status "

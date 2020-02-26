@@ -15,6 +15,7 @@ export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')" # begin reverse video
 export LESS_TERMCAP_se="$(printf '%b' '[0m')"        # reset reverse video
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"     # begin underline
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"        # reset underline
+export GRIM_DEFAULT_DIR=~/Downloads
 
 # Get the aliases and functions
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
@@ -33,7 +34,8 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
     export BEMENU_BACKEND="wayland"
     export MOZ_ENABLE_WAYLAND="1"
     export QT_QPA_PLATFORM="wayland-egl"
-    export XKB_DEFAULT_LAYOUT=us 
+    export XKB_DEFAULT_LAYOUT=us
 
+    mpd >/dev/null 2>&1
     exec sway
 fi

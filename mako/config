@@ -1,5 +1,6 @@
-font=terminus 8
+font=terminus 10
 anchor=bottom-right
 background-color=#3C4C5577
 border-color=#7FC1CA
-default-timeout=7000
+default-timeout=10000
+sort=+time
