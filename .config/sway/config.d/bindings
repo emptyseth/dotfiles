@@ -11,8 +11,7 @@ bindsym --to-code {
     $mod+q kill
 
     # Start your launcher
-    $mod+d exec $menu
-    # $mod+d exec alacritty --title=launcher -e sh -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs swaymsg exec'
+    $mod+d exec $term --config-file ~/.config/alacritty/launcher.yml -e bash -c '$launcher'
 
     # Reload the configuration file
     $mod+Shift+c reload
