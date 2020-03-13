@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Toggles VPN connection 
+# Toggles VPN connection
 
 toggle_vpn()
 {
@@ -14,3 +14,4 @@ toggle_vpn()
 }
 
 toggle_vpn
+

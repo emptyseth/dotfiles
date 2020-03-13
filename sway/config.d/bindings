@@ -12,6 +12,7 @@ bindsym --to-code {
 
     # Start your launcher
     $mod+d exec $menu
+    # $mod+d exec alacritty --title=launcher -e sh -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs swaymsg exec'
 
     # Reload the configuration file
     $mod+Shift+c reload
@@ -29,7 +30,7 @@ bindsym --to-code {
     $mod+p exec bash ~/.config/sway/scripts/vpn.sh
 
     # Take a screenshot
-    $mod+g exec grim
+    Print exec grim
 
 #
 # Moving around:

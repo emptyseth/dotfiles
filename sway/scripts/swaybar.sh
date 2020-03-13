@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Battery or charger
 CHARGING_ICON=' '
 WARNING_ICON=' '
@@ -47,7 +49,7 @@ get_volume(){
     active_sink=$(pacmd list-sinks | awk '/* index:/{print $3}')
     curStatus=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | awk '/muted/{ print $2}')
     volume=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | grep 'volume:' | grep -E -v 'base volume:' | awk -F : '{print $3}' | grep -o -P '.{0,3}%'| sed s/.$// | tr -d ' ')
-    
+
     if [ "${curStatus}" = 'yes' ]; then
         echo "$VOLUME_MUTED_ICON  $volume%"
     else
@@ -62,7 +64,7 @@ WIFI_FULL_ICON=''
 WIFI_MID_ICON=''
 WIFI_LOW_ICON=''
 
-get_wifi() 
+get_wifi()
 {
     if [ "$(cat /sys/class/net/wlp3s0/carrier)" = "1" ]; then
         # Wifi quality percentage
@@ -122,7 +124,7 @@ get_network()
 get_language()
 {
     language=$(swaymsg -r -t get_inputs | grep -m 1 'xkb_active_layout_name' | awk -F '"' '{print $4}')
-    
+
     if [ "$language" = "Russian" ]; then
         echo "РУС"
     else
@@ -179,4 +181,4 @@ current_temperature=$(get_temperature)
 
 $(enable_internal_display)
 
-echo "$current_date                                                $current_language   $current_ram   $current_temperature   $network_status   $volume_status   $battery_status "
+echo "$current_language   $current_ram   $current_temperature   $network_status   $volume_status   $battery_status  $current_date "
