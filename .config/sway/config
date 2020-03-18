@@ -32,12 +32,12 @@ set $ws10 10
 #
     # Set of colors used in the theme.
     # Background and foreground
-    set $col_bg  #3C4C55
+    set $col_bg  #3C4C99
     set $col_fg  #C5D4DD
 
     # Dark colors 0-7, bright colors 8-15
     # Black
-    set $color0  #3C4C55
+    set $color0  #3C4C99
     set $color8  #899BA6
 
     # Red
@@ -69,10 +69,9 @@ set $ws10 10
     set $color15 #E6EEF3
 
     # Special colors (base colors with transparency)
-    set $col_bg_alpha  #3C4C5577
+    set $col_bg_alpha  #3C4C9970
     set $color14_alpha #7FC1CA99
     set $color1_alpha  #DF8C8C99
-    set $col_bg_50  #3C4C5550
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
