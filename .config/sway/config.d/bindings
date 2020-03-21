@@ -104,9 +104,12 @@ bindsym --to-code {
 #
 # Audio bindings:
 #
-    XF86AudioMute exec amixer sset Master toggle
-    XF86AudioLowerVolume exec amixer sset Master 2%-
-    XF86AudioRaiseVolume exec amixer sset Master 2%+
+    XF86AudioMute           exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+    XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
+    XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
+    XF86AudioNext	    exec --no-startup-id mpc next
+    XF86AudioPlay	    exec --no-startup-id mpc toggle
+    XF86AudioPrev	    exec --no-startup-id mpc prev
 }
 
 

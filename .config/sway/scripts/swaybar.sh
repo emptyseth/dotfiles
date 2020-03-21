@@ -19,9 +19,9 @@ get_battery()
 	# The vast majority of people only use one battery.
 	if [ -d /sys/class/power_supply/BAT0 ]; then
 		capacity=$(cat /sys/class/power_supply/BAT0/capacity)
-		charging=$(cat /sys/class/power_supply/BAT0/status)
+		status=$(cat /sys/class/power_supply/BAT0/status)
 
-		if [ "$charging" = "Charging" ]; then
+		if [ "$status" = "Charging" ]; then
 			ICON="$CHARGING_ICON "
 		elif [ $capacity -le 25 ]; then
 			ICON="$WARNING_ICON "
@@ -45,8 +45,9 @@ VOLUME_ON_ICON=''
 VOLUME_MUTED_ICON=''
 
 get_volume(){
-    is_muted=$(amixer get Master | grep "\[off\]")
-    volume=$(amixer get Master | grep -o "\[[0-9]\+%\]" | sed 's/[^0-9]*//g')
+    active_sink=$(pacmd list-sinks | awk '/* index:/{print $3}')
+    is_muted=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | awk '/muted/{ print $2}')
+    volume=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | grep 'volume:' | grep -E -v 'base volume:' | awk -F : '{print $3}' | grep -o -P '.{0,3}%'| sed s/.$// | tr -d ' ')
     volume_icon=$VOLUME_ON_ICON
     [ "$is_muted" ] && volume_icon=$VOLUME_MUTED_ICON
     echo "$volume_icon $volume%"
@@ -101,10 +102,7 @@ get_network()
 
     if [ $current_ip ]; then
         network_status=$(get_wifi)
-
-        if ! [ $network_status ]; then
-            network_status=$(get_ethernet)
-        fi
+        [ $network_status ] || network_status=$(get_ethernet)
 
         echo "$network_status $current_ip"
     else
@@ -133,7 +131,6 @@ RAM_ICON=''
 get_ram()
 {
     used_ram=$(free -mh --si | awk '/^Mem:/{print $3}')
-
     echo "$RAM_ICON $used_ram"
 }
 
@@ -148,6 +145,22 @@ get_temperature()
     echo "$TEMP_ICON $temperature°C"
 }
 
+
+PLAY_ICON=''
+PAUSE_ICON=''
+
+get_mpd()
+{
+    current_song="$(mpc current)"
+
+    if [ "$current_song" ]; then
+        playpause=$(mpc | awk 'NR==2{print $1}')
+        player_icon=$PLAY_ICON
+        [ "$playpause" = "[paused]" ] && player_icon=$PAUSE_ICON
+    fi
+
+    echo "$player_icon $current_song"
+}
 
 # Checks passed output is enabled
 
@@ -172,8 +185,9 @@ current_date=$(get_date)
 current_language=$(get_language)
 current_ram=$(get_ram)
 current_temperature=$(get_temperature)
+current_song=$(get_mpd)
 
-$(enable_internal_display)
+enable_internal_display &
 
-echo "$current_language  $current_ram  $current_temperature  $network_status  $volume_status  $battery_status  $current_date "
+echo "$current_song  $current_language  $current_ram  $current_temperature  $network_status  $volume_status  $battery_status  $current_date "
 
