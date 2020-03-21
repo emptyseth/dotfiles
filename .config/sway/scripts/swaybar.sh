@@ -1,14 +1,15 @@
 #!/bin/sh
 
 # Battery or charger
-CHARGING_ICON=' '
-WARNING_ICON=' '
-BATTERY_FULL_ICON=''
-BATTERY_2_ICON=''
-BATTERY_3_ICON=''
-BATTERY_4_ICON=''
+CHARGING_ICON=''
+WARNING_ICON=''
 
-FULL_AT=98
+BATTERY_10_ICON=''
+BATTERY_30_ICON=''
+BATTERY_60_ICON=''
+BATTERY_90_ICON=''
+BATTERY_100_ICON=''
+
 
 BAT_ICON=""
 ICON=""
@@ -26,17 +27,15 @@ get_battery()
 			ICON="$WARNING_ICON "
 		fi
 
-		if [ $capacity -ge $FULL_AT ]; then
-			BAT_ICON=$BATTERY_FULL_ICON
-		elif [ $capacity -le 25 ]; then
-			BAT_ICON=$BATTERY_4_ICON
-		elif [ $capacity -le 60 ]; then
-			BAT_ICON=$BATTERY_3_ICON
-		elif [ $capacity -le $FULL_AT ]; then
-			BAT_ICON=$BATTERY_2_ICON
-		fi
+                case $capacity in
+                        100|9[7-9])             BAT_ICON=$BATTERY_100_ICON ;;
+                        7[0-9]|8[0-9]|9[0-7])   BAT_ICON=$BATTERY_90_ICON ;;
+                        4[0-9]|5[0-9]|6[0-9])   BAT_ICON=$BATTERY_60_ICON ;;
+                        1[0-9]|2[0-9]|3[0-9])   BAT_ICON=$BATTERY_30_ICON ;;
+                        [0-9])                  BAT_ICON=$BATTERY_10_ICON ;;
+                esac
 	fi
-	echo "$ICON$BAT_ICON  $capacity%"
+	echo "$ICON$BAT_ICON $capacity%"
 }
 
 
@@ -46,15 +45,11 @@ VOLUME_ON_ICON=''
 VOLUME_MUTED_ICON=''
 
 get_volume(){
-    active_sink=$(pacmd list-sinks | awk '/* index:/{print $3}')
-    curStatus=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | awk '/muted/{ print $2}')
-    volume=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | grep 'volume:' | grep -E -v 'base volume:' | awk -F : '{print $3}' | grep -o -P '.{0,3}%'| sed s/.$// | tr -d ' ')
-
-    if [ "${curStatus}" = 'yes' ]; then
-        echo "$VOLUME_MUTED_ICON  $volume%"
-    else
-        echo "$VOLUME_ON_ICON  $volume%"
-    fi
+    is_muted=$(amixer get Master | grep "\[off\]")
+    volume=$(amixer get Master | grep -o "\[[0-9]\+%\]" | sed 's/[^0-9]*//g')
+    volume_icon=$VOLUME_ON_ICON
+    [ "$is_muted" ] && volume_icon=$VOLUME_MUTED_ICON
+    echo "$volume_icon $volume%"
 }
 
 
@@ -83,9 +78,7 @@ ETHERNET_ICON=''
 
 get_ethernet()
 {
-    if [ "$(cat /sys/class/net/enp0s25/carrier)" = "1" ]; then
-        echo "$ETHERNET_ICON"
-    fi
+    [ "$(cat /sys/class/net/enp0s25/carrier)" = "1" ] && echo "$ETHERNET_ICON"
 }
 
 
@@ -136,6 +129,7 @@ get_language()
 # Prints the total ram and used ram in Mb
 
 RAM_ICON=''
+
 get_ram()
 {
     used_ram=$(free -mh --si | awk '/^Mem:/{print $3}')
@@ -143,7 +137,11 @@ get_ram()
     echo "$RAM_ICON $used_ram"
 }
 
-TEMP_ICON=''
+
+# Prints thermal information
+
+TEMP_ICON=''
+
 get_temperature()
 {
     temperature=$(acpi -t | awk '{print $4}')
@@ -152,23 +150,19 @@ get_temperature()
 
 
 # Checks passed output is enabled
+
 is_output_enabled()
 {
     echo $(swaymsg -t get_outputs | awk '/name/;/active/' | grep -A1 $1 | grep true)
 }
 
 # Enables internal display if external display is unnplugged
+
 enable_internal_display()
 {
-    external_display_enabled=$(is_output_enabled $EXTERNAL_DISPLAY)
-
-    if ! [ "$external_display_enabled" ]; then
-        internal_display_enabled=$(is_output_enabled $INTERNAL_DISPLAY)
-
-        if ! [ "$internal_display_enabled" ]; then
-            echo "$(swaymsg output $INTERNAL_DISPLAY enable)"
-        fi
-    fi
+    [ "$(is_output_enabled $EXTERNAL_DISPLAY)" ] ||
+    [ "$(is_output_enabled $INTERNAL_DISPLAY)" ] ||
+    swaymsg output $INTERNAL_DISPLAY enable
 }
 
 network_status=$(get_network)
@@ -181,4 +175,5 @@ current_temperature=$(get_temperature)
 
 $(enable_internal_display)
 
-echo "$current_language   $current_ram   $current_temperature   $network_status   $volume_status   $battery_status  $current_date "
+echo "$current_language  $current_ram  $current_temperature  $network_status  $volume_status  $battery_status  $current_date "
+

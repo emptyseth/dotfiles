@@ -4,6 +4,6 @@
 - **Protocol:** Wayland
 - **Windows Manager:** Sway
 - **Terminal:** Alacritty
-- **Launcher:** Alacritty
+- **Launcher:** Alacritty + fzf
 - **Notifications:** Maco
 
