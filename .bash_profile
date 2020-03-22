@@ -6,6 +6,7 @@ export EDITOR="nvim"
 export FILE="ranger"
 export INTERNAL_DISPLAY="LVDS-1"
 export EXTERNAL_DISPLAY="VGA-1"
+export VPN_PROVIDER="protonvpn"
 export GRIM_DEFAULT_DIR=~/.screenshots
 
 export LESS=-R
@@ -41,3 +42,4 @@ if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
     mpd >/dev/null 2>&1
     exec sway
 fi
+

@@ -27,14 +27,16 @@ call plug#end()
 
 set number
 set expandtab
-set tabstop=8
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-
+set tabstop=2
+set shiftwidth=2
+set relativenumber
+set signcolumn=yes
 syntax on
 
 nmap <C-n> :NERDTreeToggle<CR>
+
+let g:NERDTreeShowHidden=1
+let g:NERDTreeGitStatusWithFlags = 1
 
 " coc config
 let g:coc_global_extensions = [

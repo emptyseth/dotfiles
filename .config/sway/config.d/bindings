@@ -11,7 +11,7 @@ bindsym --to-code {
     $mod+q kill
 
     # Start your launcher
-    $mod+d exec $term --config-file ~/.config/alacritty/launcher.yml -e bash -c '$launcher'
+    $mod+d exec sh ~/.config/sway/scripts/launcher.sh
 
     # Reload the configuration file
     $mod+Shift+c reload
@@ -19,14 +19,11 @@ bindsym --to-code {
     # Exit sway (logs you out of your Wayland session)
     $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-    # Lock window
-    $mod+Control+l exec $lock
-
     # Toggle internal display
     $mod+Control+e exec swaymsg output $internal_display toggle
 
     # Toggle VPN
-    $mod+p exec bash ~/.config/sway/scripts/vpn.sh
+    $mod+p exec sh ~/.config/sway/scripts/vpn.sh
 
     # Take a screenshot
     Print exec grim
@@ -107,9 +104,11 @@ bindsym --to-code {
     XF86AudioMute           exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
     XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
     XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
-    XF86AudioNext	    exec --no-startup-id mpc next
-    XF86AudioPlay	    exec --no-startup-id mpc toggle
-    XF86AudioPrev	    exec --no-startup-id mpc prev
+    XF86AudioNext	          exec --no-startup-id mpc next
+    XF86AudioPlay	          exec --no-startup-id mpc toggle
+    XF86AudioPrev	          exec --no-startup-id mpc prev
+    $mod+XF86AudioPlay      exec --no-startup-id mpc stop
+    XF86Suspend		          exec $lock
 }
 
 

@@ -9,7 +9,6 @@
 set $mod Mod4
 set $font terminus 8
 set $term $TERMINAL
-set $launcher compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec
 set $internal_display $INTERNAL_DISPLAY
 set $external_display $EXTERNAL_DISPLAY
 set $lock swaylock
@@ -101,9 +100,6 @@ floating_modifier $mod normal
 # Gaps behviour
     smart_gaps	off
 
-# Fibonacci mod
-# for_window [class=".*"] split toggle
-# for_window [app_id=".*"] split toggle
 
 # Disable idle when firefox is fullscreen
 for_window [app_id="firefox"] inhibit_idle fullscreen
