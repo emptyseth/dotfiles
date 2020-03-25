@@ -7,7 +7,6 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'bling/vim-airline'
@@ -49,5 +48,5 @@ let g:coc_global_extensions = [
   \ ]
 
 " Automatically deletes all trailing whitespace on save.
-	autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * %s/\s\+$//e
 
