@@ -154,39 +154,61 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Nova)
-colors:
-  # Default colors
-  primary:
-    background: '0x3C4C55'
-    foreground: '0xC5D4DD'
+schemes:
+  blue_print: &blue
+    primary:
+      background: '0x3C4C99'
+      foreground: '0xC5D4DD'
 
-  cursor:
-    text: '0x212121'
-    cursor: '0xC0C5CE'
+    cursor:
+      text: '0x212121'
+      cursor: '0xC0C5CE'
 
-  # Normal colors
-  normal:
-    black:   '0x3C4C55'
-    red:     '0xDF8C8C'
-    green:   '0xA8CE93'
-    yellow:  '0xDADA93'
-    blue:    '0x83AFE5'
-    magenta: '0x9A93E1'
-    cyan:    '0x7FC1CA'
-    white:   '0xC5D4DD'
+    normal:
+      black:   '0x3C4C99'
+      red:     '0xDF8C8C'
+      green:   '0xA8CE93'
+      yellow:  '0xDADA93'
+      blue:    '0x83AFE5'
+      magenta: '0x9A93E1'
+      cyan:    '0x7FC1CA'
+      white:   '0xC5D4DD'
 
-  # Bright colors
-  bright:
-    black:   '0x899BA6'
-    red:     '0xF2C38F'
-    green:   '0xA8CE93'
-    yellow:  '0xDADA93'
-    blue:    '0x83AFE5'
-    magenta: '0xD18EC2'
-    cyan:    '0x7FC1CA'
-    white:   '0xE6EEF3'
+    bright:
+      black:   '0x899BA6'
+      red:     '0xF2C38F'
+      green:   '0xA8CE93'
+      yellow:  '0xDADA93'
+      blue:    '0x83AFE5'
+      magenta: '0xD18EC2'
+      cyan:    '0x7FC1CA'
+      white:   '0xE6EEF3'
+  grayscale_dark: &grayscale
+    primary:
+      background: '0x000000'
+      foreground: '0xb9b9b9'
 
+    normal:
+      black:   '0x101010'
+      red:     '0x7c7c7c'
+      green:   '0x8e8e8e'
+      yellow:  '0xa0a0a0'
+      blue:    '0x686868'
+      magenta: '0x747474'
+      cyan:    '0x868686'
+      white:   '0xb9b9b9'
+
+    bright:
+      black:   '0x525252'
+      red:     '0x7c7c7c'
+      green:   '0x8e8e8e'
+      yellow:  '0xa0a0a0'
+      blue:    '0x686868'
+      magenta: '0x747474'
+      cyan:    '0x868686'
+      white:   '0xf7f7f7'
+
+colors: *grayscale
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
