@@ -111,13 +111,13 @@ bindsym --to-code {
 #
 # Audio bindings:
 #
-    XF86AudioMute           exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-    XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
-    XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
-    XF86AudioNext	          exec --no-startup-id mpc next
-    XF86AudioPlay	          exec --no-startup-id mpc toggle
-    XF86AudioPrev	          exec --no-startup-id mpc prev
-    $mod+XF86AudioPlay      exec --no-startup-id mpc stop
+    XF86AudioMute           exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $SWAYSOCK.wob ) || pamixer --get-volume > $SWAYSOCK.wob
+    XF86AudioLowerVolume    exec pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob
+    XF86AudioRaiseVolume    exec pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob
+    XF86AudioNext	          exec mpc next
+    XF86AudioPlay	          exec mpc toggle
+    XF86AudioPrev	          exec mpc prev
+    $mod+XF86AudioPlay      exec mpc stop
     XF86Suspend		          exec $lock
 }
 
