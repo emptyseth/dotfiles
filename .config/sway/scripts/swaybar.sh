@@ -45,11 +45,10 @@ VOLUME_ON_ICON=''
 VOLUME_MUTED_ICON=''
 
 get_volume(){
-    active_sink=$(pacmd list-sinks | awk '/* index:/{print $3}')
-    is_muted=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | awk '/muted/{ print $2}')
-    volume=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | grep 'volume:' | grep -E -v 'base volume:' | awk -F : '{print $3}' | grep -o -P '.{0,3}%'| sed s/.$// | tr -d ' ')
+    volume=$(pamixer --get-volume)
+    mute=$(pamixer --get-mute)
     volume_icon=$VOLUME_ON_ICON
-    [ "$is_muted" ] && volume_icon=$VOLUME_MUTED_ICON
+    [ "$mute" = "true" ] && volume_icon=$VOLUME_MUTED_ICON
     echo "$volume_icon $volume%"
 }
 

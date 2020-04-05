@@ -7,13 +7,15 @@
 
 ### Variables
 set $mod Mod4
-set $font terminus 8
+set $font terminus 10
 set $term $TERMINAL
 set $internal_display $INTERNAL_DISPLAY
 set $external_display $EXTERNAL_DISPLAY
 set $lock swaylock
-set $wallpaper ~/.config/sway/images/wallpaper.jpg
-set $lockscreenbg ~/.config/sway/images/wallpaper.jpg
+set $left h
+set $down j
+set $up k
+set $right l
 
 set $ws1 1
 set $ws2 2
@@ -31,46 +33,45 @@ set $ws10 10
 #
     # Set of colors used in the theme.
     # Background and foreground
-    set $col_bg  #3C4C99
-    set $col_fg  #C5D4DD
+    set $col_bg  #000000
+    set $col_fg  #b9b9b9
 
     # Dark colors 0-7, bright colors 8-15
     # Black
-    set $color0  #3C4C99
-    set $color8  #899BA6
+    set $color0  #101010
+    set $color8  #525252
 
     # Red
-    set $color1  #DF8C8C
-    set $color9  #F2C38F
+    set $color1  #7c7c7c
+    set $color9  #7c7c7c
 
     # Green
-    set $color2  #A8CE93
-    set $color10 #A8CE93
+    set $color2  #8e8e8e
+    set $color10 #8e8e8e
 
     # Yellow
-    set $color3  #DADA93
-    set $color11 #DADA93
+    set $color3  #a0a0a0
+    set $color11 #a0a0a0
 
     # Blue
-    set $color4  #83AFE5
-    set $color12 #83AFE5
+    set $color4  #686868
+    set $color12 #686868
 
     # Magenta
-    set $color5  #9A93E1
-    set $color13 #D18EC2
+    set $color5  #747474
+    set $color13 #747474
 
     # Cyan
-    set $color6  #7FC1CA
-    set $color14 #7FC1CA
+    set $color6  #868686
+    set $color14 #868686
 
     # White
-    set $color7  #C5D4DD
-    set $color15 #E6EEF3
+    set $color7  #b9b9b9
+    set $color15 #f7f7f7
 
-    # Special colors (base colors with transparency)
-    set $col_bg_alpha  #3C4C9970
-    set $color14_alpha #7FC1CA99
-    set $color1_alpha  #DF8C8C99
+    set $col_bg_alpha  #10101070
+    set $color14_alpha #86868699
+    set $color1_alpha  #7c7c7c99
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -94,8 +95,8 @@ floating_modifier $mod normal
     smart_borders		off
 
 # Gaps between windows
-    gaps	outer	2
-    gaps	inner	5
+    gaps	outer	0
+    gaps	inner	3
 
 # Gaps behviour
     smart_gaps	off
@@ -103,7 +104,7 @@ floating_modifier $mod normal
 
 # Disable idle when firefox is fullscreen
 for_window [app_id="firefox"] inhibit_idle fullscreen
-for_window [app_id="chromium"] inhibit_idle fullscreen
+for_window [class="Chromium"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle
 for_window [title="^launcher$"] floating enable
 
@@ -116,4 +117,6 @@ exec --no-startup-id  dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR
 # Start notification daemon
 exec mako
 
+# Start bar
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 include ~/.config/sway/config.d/*
