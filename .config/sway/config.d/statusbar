@@ -1,4 +1,3 @@
-
 #
 # Status Bar:
 #
@@ -8,7 +7,7 @@ bar {
     font $font
     tray_output none
     mode hide
-    gaps 8 5
+    gaps 12 6
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -16,10 +15,10 @@ bar {
 
     colors {
         background $col_bg
-        statusline $color14
+        statusline $color7
         # <border> <background> <text>
-        inactive_workspace $col_bg $col_bg $color8
-        focused_workspace $color14 $col_bg $color14
+        inactive_workspace $col_bg $col_bg $color14
+        focused_workspace $color7 $col_bg $color7
     }
 }
 

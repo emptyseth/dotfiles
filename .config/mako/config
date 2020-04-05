@@ -4,4 +4,5 @@ background-color=#000000
 border-color=#868686
 default-timeout=10000
 sort=+time
+layer=overlay
 
