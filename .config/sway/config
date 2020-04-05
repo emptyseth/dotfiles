@@ -12,8 +12,6 @@ set $term $TERMINAL
 set $internal_display $INTERNAL_DISPLAY
 set $external_display $EXTERNAL_DISPLAY
 set $lock swaylock
-set $wallpaper ~/.config/sway/images/wallpaper.jpg
-set $lockscreenbg ~/.config/sway/images/wallpaper.jpg
 set $left h
 set $down j
 set $up k
