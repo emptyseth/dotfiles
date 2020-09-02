@@ -109,9 +109,6 @@ for_window [app_id="mpv"] inhibit_idle
 for_window [title="^launcher$"] floating enable
 
 
-# Start dbus-daemon
-exec --no-startup-id  dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
-
 # Start notification daemon
 exec mako
 
