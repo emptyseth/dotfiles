@@ -8,6 +8,7 @@
 - **Launcher:** Alacritty + fzf
 - **Notifications:** Maco
 - **Progress Bar:** Wob
+- **Font:** Terminus
 
 ### Screenshots
 
