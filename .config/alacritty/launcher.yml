@@ -469,20 +469,15 @@ mouse_bindings:
 # a no-op if you do not wish to receive input characters for that binding.
 key_bindings:
   # (Windows/Linux only)
-  - { key: V,        mods: Control|Shift, action: Paste            }
-  - { key: C,        mods: Control|Shift, action: Copy             }
-  - { key: Insert,   mods: Shift,         action: PasteSelection   }
-  - { key: Key0,     mods: Control,       action: ResetFontSize    }
-  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
-  - { key: Add,      mods: Control,       action: IncreaseFontSize }
-  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
-  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
-  - { key: Return,   mods: Alt,           action: ToggleFullscreen }
-  - { key: Paste,                         action: Paste                            }
-  - { key: Copy,                          action: Copy                             }
-  - { key: L,         mods: Control,      action: ClearLogNotice                   }
-  - { key: L,         mods: Control,      chars: "\x0c"                            }
-  - { key: PageUp,    mods: Shift,        action: ScrollPageUp,   mode: ~Alt       }
-  - { key: PageDown,  mods: Shift,        action: ScrollPageDown, mode: ~Alt       }
-  - { key: Home,      mods: Shift,        action: ScrollToTop,    mode: ~Alt       }
-  - { key: End,       mods: Shift,        action: ScrollToBottom, mode: ~Alt       }
+  - { key: V,              mods: Control|Shift,           action: Paste            }
+  - { key: C,              mods: Control|Shift,           action: Copy             }
+  - { key: F,              mods: Control|Shift,           action: SearchForward    }
+  - { key: B,              mods: Control|Shift,           action: SearchBackward   }
+  - { key: C,              mods: Control|Shift, mode: Vi, action: ClearSelection   }
+  - { key: Insert,         mods: Shift,                   action: PasteSelection   }
+  - { key: Key0,           mods: Control,                 action: ResetFontSize    }
+  - { key: Equals,         mods: Control,                 action: IncreaseFontSize }
+  - { key: Plus,           mods: Control,                 action: IncreaseFontSize }
+  - { key: NumpadAdd,      mods: Control,                 action: IncreaseFontSize }
+  - { key: Minus,          mods: Control,                 action: DecreaseFontSize }
+  - { key: NumpadSubtract, mods: Control,                 action: DecreaseFontSize }
