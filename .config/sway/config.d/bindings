@@ -23,7 +23,7 @@ bindsym --to-code {
     $mod+Control+e exec swaymsg output $internal_display toggle
 
     # Toggle VPN
-    $mod+p exec sh ~/.config/sway/scripts/vpn.sh
+    # $mod+p exec sh ~/.config/sway/scripts/vpn.sh
 
     # Take a screenshot
     Print exec grim
