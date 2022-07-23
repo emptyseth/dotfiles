@@ -109,6 +109,10 @@ for_window [app_id="mpv"] inhibit_idle
 for_window [title="^launcher$"] floating enable
 
 
+# Starf audio
+exec pipewire 
+exec pipewire-pulse
+
 # Start notification daemon
 exec mako
 
