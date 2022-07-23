@@ -1,0 +1,26 @@
+#
+# Defines the color style for each window.
+# The format is client.<class> <border> <background> <text> <indicator> <child_border>
+# Client indicates any window. For more informations, see man 5 sway.
+client.unfocused        $color8         $color8         $col_fg     $color8         $color8
+client.focused_inactive $col_bg         $col_bg         $col_fg     $col_bg_alpha   $col_bg_alpha
+client.focused          $color14        $color14        $col_fg     $color14        $color14
+client.urgent           $color1_alpha   $color1_alpha   $col_fg     $color1_alpha   $color1_alpha
+
+#
+# Defines the geometry of every window and its alignment regarding other windows and the workspace.
+# Window borders
+default_border            pixel 1
+default_floating_border   pixel 1
+titlebar_border_thickness 1
+
+# Window borders behaviour
+hide_edge_borders none
+smart_borders     off
+
+# Gaps between windows
+gaps  outer 0
+gaps  inner 3
+
+# Gaps behaviour
+smart_gaps  off

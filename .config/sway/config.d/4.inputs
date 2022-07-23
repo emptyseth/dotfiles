@@ -1,4 +1,14 @@
 ### Input configuration
+input type:keyboard {
+    xkb_layout us,ru
+    xkb_options grp:caps_toggle
+    #repeat_delay 200
+    #repeat_rate 5
+}
+
+input type:touchpad {
+    events disabled
+}
 #
 # Example configuration:
 #
@@ -11,14 +21,3 @@
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-
-input type:keyboard {
-    xkb_layout us,ru
-    xkb_options grp:caps_toggle
-    #repeat_delay 200
-    #repeat_rate 5
-}
-
-input type:touchpad {
-    events disabled
-}

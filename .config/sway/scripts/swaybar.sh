@@ -189,4 +189,3 @@ current_song=$(get_mpd)
 enable_internal_display &
 
 echo "$current_song  $current_language  $current_ram  $current_temperature  $network_status  $volume_status  $battery_status  $current_date "
-

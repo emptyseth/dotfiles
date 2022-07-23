@@ -1,0 +1,12 @@
+# Starf audio
+exec pipewire 
+exec pipewire-pulse
+
+# Start notification daemon
+exec mako
+
+# Start day/night gamma adjustments
+exec wlsunset -l 55 -L 83 
+
+# Start bar
+exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob

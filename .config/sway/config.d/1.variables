@@ -1,0 +1,70 @@
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term $TERMINAL
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu sh ~/.config/sway/scripts/launcher.sh
+
+#
+# Custom
+#
+set $font terminus 10
+set $internal_display $INTERNAL_DISPLAY
+set $external_display $EXTERNAL_DISPLAY
+set $lock swaylock -f -c 000000
+set $vpn sh ~/.config/sway/scripts/vpn.sh
+set $printscreen grim
+
+#
+# Colors
+#
+# Set of colors used in the theme.
+# Background and foreground
+set $col_bg  #000000
+set $col_fg  #b9b9b9
+
+# Dark colors 0-7, bright colors 8-15
+# Black
+set $color0  #101010
+set $color8  #525252
+
+# Red
+set $color1  #7c7c7c
+set $color9  #7c7c7c
+
+# Green
+set $color2  #8e8e8e
+set $color10 #8e8e8e
+
+# Yellow
+set $color3  #a0a0a0
+set $color11 #a0a0a0
+
+# Blue
+set $color4  #686868
+set $color12 #686868
+
+# Magenta
+set $color5  #747474
+set $color13 #747474
+
+# Cyan
+set $color6  #868686
+set $color14 #868686
+
+# White
+set $color7  #b9b9b9
+set $color15 #f7f7f7
+
+set $col_bg_alpha  #10101070
+set $color14_alpha #86868699
+set $color1_alpha  #7c7c7c99
