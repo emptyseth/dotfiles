@@ -12,6 +12,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 # read https://wiki.archlinux.org/title/XDG_Base_Directory
 export XKB_DEFAULT_LAYOUT=us
+export XDG_SESSION_TYPE=wayland
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -29,7 +30,6 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export MOZ_ENABLE_WAYLAND="1"
-export QT_QPA_PLATFORM="wayland-egl"
 
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"       # begin blink
@@ -42,6 +42,6 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"          # reset underline
 export LESSHISTFILE=-
 
 if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
-    mpd >/dev/null 2>&1
+    mpd &>/dev/null
     exec sway
 fi

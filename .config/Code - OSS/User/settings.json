@@ -1,0 +1,22 @@
+{
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.tabSize": 2,
+  "workbench.colorTheme": "Palenight Theme",
+  "terminal.integrated.fontFamily": "monospace",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "telemetry.telemetryLevel": "off",
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
+  "editor.renderWhitespace": "all",
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "window.menuBarVisibility": "toggle",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "go.toolsManagement.autoUpdate": true
+}
