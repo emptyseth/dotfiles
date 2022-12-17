@@ -17,8 +17,8 @@ exec swayidle -w \
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-# Disable idle when firefox is fullscreen
+# Disable idle
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [class="Chromium"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle
-for_window [title="^launcher$"] floating enable
+for_window [app_id="Launcher"] floating enable

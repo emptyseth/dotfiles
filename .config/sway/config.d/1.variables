@@ -8,7 +8,7 @@ set $up k
 set $right l
 set $term $TERMINAL
 set $menu sh ~/.config/sway/scripts/launcher.sh
-set $font terminus 10
+set $font terminus 11
 
 #
 # Custom
