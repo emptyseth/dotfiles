@@ -1,0 +1,7 @@
+# Disable xwayland
+# xwayland disable
+
+exec $init_audio
+exec $init_notifications
+exec $init_gamma_adj
+exec $init_progress_bar

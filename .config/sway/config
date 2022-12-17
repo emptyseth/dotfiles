@@ -4,7 +4,4 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-# Disable xwayland
-# xwayland disable
-
 include ~/.config/sway/config.d/*

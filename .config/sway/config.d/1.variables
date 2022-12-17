@@ -2,27 +2,38 @@
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
 set $term $TERMINAL
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
 set $menu sh ~/.config/sway/scripts/launcher.sh
+set $font terminus 10
 
 #
 # Custom
 #
-set $font terminus 10
-set $internal_display $INTERNAL_DISPLAY
-set $external_display $EXTERNAL_DISPLAY
 set $lock swaylock -f -c 000000
-set $vpn sh ~/.config/sway/scripts/vpn.sh
-set $printscreen grim
+set $print_screen grim
+set $open_file_manager swaymsg "workspace 9; exec $TERMINAL -e $FILE"
+set $toggle_internal_display swaymsg output $INTERNAL_DISPLAY toggle
+set $start_vpn swaymsg "workspace 10; exec sh ~/.config/sway/scripts/vpn.sh"
+
+set $audio_mute ([ "$(pamixer --toggle-mute && pamixer --get-mute)" = "true" ] && echo 0 || pamixer --get-volume) > $SWAYSOCK.wob
+set $audio_raise_volume pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob
+set $audio_lower_volume pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob
+set $audio_next mpc next
+set $audio_prev mpc prev
+set $audio_toggle mpc toggle
+set $audio_stop mpc stop
+
+#
+# Inits
+#
+set $init_audio pipewire & pipewire-pulse
+set $init_notifications mako
+set $init_gamma_adj wlsunset -l 55 -L 83
+set $init_progress_bar mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
 
 #
 # Colors

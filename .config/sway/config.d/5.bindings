@@ -143,13 +143,15 @@ bindsym $mod+r mode "resize"
 #
 bindsym --to-code {
     # Toggle internal display
-    $mod+Control+e exec swaymsg output $internal_display toggle
-    # Toggle VPN
-    $mod+p exec $vpn
+    $mod+Control+e exec $toggle_internal_display
     # Take a screenshot
-    Print exec $prinscreen
+    Print exec $print_screen
     # Lock the screen
     $mod+o exec $lock
+    # Open file manager
+    $mod+m exec $open_file_manager
+    # Start VPN
+    $mod+p exec $start_vpn
 
     # Move workspace between outputs
     $mod+Control+Shift+Right move workspace to output right
@@ -157,12 +159,12 @@ bindsym --to-code {
     $mod+Control+Shift+Down move workspace to output down
     $mod+Control+Shift+Up move workspace to output up
 
-    XF86AudioMute           exec ([ "$(pamixer --toggle-mute && pamixer --get-mute)" = "true" ] && echo 0 || pamixer --get-volume) > $SWAYSOCK.wob
-    XF86AudioLowerVolume    exec pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob
-    XF86AudioRaiseVolume    exec pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob
-    XF86AudioNext           exec mpc next
-    XF86AudioPlay           exec mpc toggle
-    XF86AudioPrev           exec mpc prev
-    $mod+XF86AudioPlay      exec mpc stop
+    XF86AudioMute           exec $audio_mute
+    XF86AudioLowerVolume    exec $audio_lower_volume
+    XF86AudioRaiseVolume    exec $audio_raise_volume
+    XF86AudioNext           exec $audio_next
+    XF86AudioPlay           exec $audio_toggle
+    XF86AudioPrev           exec $audio_prev
+    XF86AudioStop           exec $audio_stop
     XF86Suspend             exec $lock
 }
