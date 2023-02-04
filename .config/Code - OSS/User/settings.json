@@ -18,5 +18,12 @@
   "editor.fontFamily": "JetBrains Mono",
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
-  "go.toolsManagement.autoUpdate": true
+  "go.toolsManagement.autoUpdate": true,
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": ["--fast"],
+  "eslint.format.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "cSpell.enableFiletypes": ["shellscript"]
 }

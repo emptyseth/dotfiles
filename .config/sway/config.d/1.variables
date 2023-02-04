@@ -16,7 +16,7 @@ set $font terminus 11
 set $lock swaylock -f -c 000000
 set $print_screen grim
 set $open_file_manager swaymsg "workspace 9; exec $TERMINAL -e $FILE"
-set $toggle_internal_display swaymsg output $INTERNAL_DISPLAY toggle
+set $toggle_internal_display swaymsg "output $INTERNAL_DISPLAY toggle"
 set $start_vpn swaymsg "workspace 10; exec sh ~/.config/sway/scripts/vpn.sh"
 
 set $audio_mute ([ "$(pamixer --toggle-mute && pamixer --get-mute)" = "true" ] && echo 0 || pamixer --get-volume) > $SWAYSOCK.wob
