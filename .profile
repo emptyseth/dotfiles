@@ -30,6 +30,8 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export MOZ_ENABLE_WAYLAND="1"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export GPG_TTY=$(tty)
 
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"       # begin blink

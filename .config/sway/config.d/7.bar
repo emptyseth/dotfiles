@@ -21,4 +21,3 @@ bar {
         focused_workspace $color7 $col_bg $color7
     }
 }
-
