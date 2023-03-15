@@ -25,5 +25,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "cSpell.enableFiletypes": ["shellscript"]
+  "cSpell.enableFiletypes": [
+    "shellscript"
+  ],
+  "terminal.integrated.defaultProfile.linux": "bash"
 }
