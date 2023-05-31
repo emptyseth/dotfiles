@@ -30,7 +30,7 @@ set $audio_stop mpc stop
 #
 # Inits
 #
-set $init_audio pipewire & pipewire-pulse
+set $init_audio pipewire & pipewire-pulse & wireplumber
 set $init_notifications mako
 set $init_gamma_adj wlsunset -l 55 -L 83
 set $init_progress_bar mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | wob
