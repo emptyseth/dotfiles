@@ -3,12 +3,6 @@
   "editor.tabSize": 2,
   "workbench.colorTheme": "Palenight Theme",
   "terminal.integrated.fontFamily": "monospace",
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "telemetry.telemetryLevel": "off",
   "debug.javascript.autoAttachFilter": "onlyWithFlag",
   "editor.renderWhitespace": "all",
@@ -16,17 +10,10 @@
   "window.menuBarVisibility": "toggle",
   "editor.fontLigatures": true,
   "editor.fontFamily": "JetBrains Mono",
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
   "go.toolsManagement.autoUpdate": true,
-  "go.lintTool": "golangci-lint",
-  "go.lintFlags": ["--fast"],
   "eslint.format.enable": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "cSpell.enableFiletypes": [
-    "shellscript"
-  ],
+  "cSpell.enableFiletypes": ["shellscript"],
   "terminal.integrated.defaultProfile.linux": "bash"
 }
