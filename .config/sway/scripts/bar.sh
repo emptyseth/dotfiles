@@ -104,7 +104,7 @@ WIFI_40_ICON='󰤟'
 WIFI_20_ICON='󰤯'
 get_wifi()
 {
-    if [ "$(cat /sys/class/net/wlp3s0/carrier)" = "1" ]; then
+    if [ "$(cat /sys/class/net/wlp0s20f3/carrier)" = "1" ]; then
         # Wifi quality percentage
         percentage=$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70)}'| xargs)
         case $percentage in
@@ -219,5 +219,5 @@ current_ram=$(get_ram)
 current_temperature=$(get_temperature)
 current_song=$(get_mpd)
 
-enable_internal_display &
+# enable_internal_display &
 echo "$current_song $network_status $current_ram $current_temperature $volume_status $battery_status $current_language $current_date "

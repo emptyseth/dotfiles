@@ -1,3 +1,6 @@
+# .bash_profile
+
+# Get the aliases and functions
 [ -f $HOME/.bashrc ] && . $HOME/.bashrc
 
 export BROWSER="firefox"
@@ -10,7 +13,7 @@ export VPN_PROVIDER="protonvpn"
 export GTK_THEME="Breeze-Dark"
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-# read https://wiki.archlinux.org/title/XDG_Base_Directory
+# Read https://wiki.archlinux.org/title/XDG_Base_Directory
 export XKB_DEFAULT_LAYOUT=us
 export XDG_SESSION_TYPE=wayland
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -30,8 +33,9 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export MOZ_ENABLE_WAYLAND="1"
+export GPG_TTY="$(tty)"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-export GPG_TTY=$(tty)
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc "
 
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"       # begin blink

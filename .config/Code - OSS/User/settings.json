@@ -9,11 +9,14 @@
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "window.menuBarVisibility": "toggle",
   "editor.fontLigatures": true,
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "Droid Sans Mono",
   "editor.formatOnPaste": false,
   "editor.formatOnSave": false,
   "go.toolsManagement.autoUpdate": true,
   "eslint.format.enable": false,
   "cSpell.enableFiletypes": ["shellscript"],
-  "terminal.integrated.defaultProfile.linux": "bash"
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "editor.fontSize": 16,
+  "window.zoomLevel": 1,
+  "security.workspace.trust.untrustedFiles": "open"
 }
