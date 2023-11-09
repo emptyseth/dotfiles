@@ -18,5 +18,6 @@
   "terminal.integrated.defaultProfile.linux": "bash",
   "editor.fontSize": 16,
   "window.zoomLevel": 1,
-  "security.workspace.trust.untrustedFiles": "open"
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.bracketPairColorization.enabled": true
 }
