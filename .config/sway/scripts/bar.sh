@@ -79,11 +79,13 @@ VOLUME_MEDIUM_ICON='󰖀'
 VOLUME_HIGH_ICON='󰕾'
 VOLUME_MUTE_ICON='󰝟'
 get_volume(){
-    mute=$(pamixer --get-mute)
-    if [ "$mute" = "true" ]; then
+    vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+    mute=$(echo $vol | grep -o 'MUTED')
+
+    if [ "$mute" = "MUTED" ]; then
         echo "$VOLUME_MUTE_ICON $INDENT_LINE_ICON"
     else
-        volume=$(pamixer --get-volume)
+        volume=$(echo $vol | awk -F '[: ]+' '{print $2 * 100}')
 
         case $volume in
             7[0-9]|8[0-9]|9[0-9]|100)       volume_icon=$VOLUME_HIGH_ICON ;;

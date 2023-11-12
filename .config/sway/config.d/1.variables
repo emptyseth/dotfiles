@@ -19,9 +19,9 @@ set $open_file_manager swaymsg "workspace 9; exec $TERMINAL -e $FILE"
 set $toggle_internal_display swaymsg "output $INTERNAL_DISPLAY toggle"
 set $start_vpn swaymsg "workspace 10; exec sh ~/.config/sway/scripts/vpn.sh"
 
-set $audio_mute ([ "$(pamixer --toggle-mute && pamixer --get-mute)" = "true" ] && echo 0 || pamixer --get-volume) > $SWAYSOCK.wob
-set $audio_raise_volume pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob
-set $audio_lower_volume pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob
+set $audio_mute ([ "$(wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -o 'MUTED')" = "MUTED" ] && echo 0 || wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk -F '[: ]+' '{print $2 * 100}') > $SWAYSOCK.wob
+set $audio_raise_volume wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk -F '[: ]+' '{print $2 * 100}' > $SWAYSOCK.wob
+set $audio_lower_volume wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- && wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk -F '[: ]+' '{print $2 * 100}' > $SWAYSOCK.wob
 set $audio_next mpc next
 set $audio_prev mpc prev
 set $audio_toggle mpc toggle
