@@ -167,4 +167,6 @@ bindsym --to-code {
     XF86AudioPrev           exec $audio_prev
     XF86AudioStop           exec $audio_stop
     XF86Suspend             exec $lock
+    XF86MonBrightnessDown   exec $brightness_down
+    XF86MonBrightnessUp     exec $brightness_up
 }
