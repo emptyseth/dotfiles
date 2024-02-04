@@ -1,3 +1,7 @@
+import = [
+    "~/.config/alacritty/themes/ashes_dark.toml"
+]
+
 live_config_reload = true
 
 [bell]
@@ -7,30 +11,6 @@ duration = 0
 
 [colors]
 draw_bold_text_with_bright_colors = true
-
-[colors.bright]
-black = "0x525252"
-blue = "0x686868"
-cyan = "0x868686"
-green = "0x8e8e8e"
-magenta = "0x747474"
-red = "0x7c7c7c"
-white = "0xf7f7f7"
-yellow = "0xa0a0a0"
-
-[colors.normal]
-black = "0x101010"
-blue = "0x686868"
-cyan = "0x868686"
-green = "0x8e8e8e"
-magenta = "0x747474"
-red = "0x7c7c7c"
-white = "0xb9b9b9"
-yellow = "0xa0a0a0"
-
-[colors.primary]
-background = "0x000000"
-foreground = "0xb9b9b9"
 
 [cursor]
 unfocused_hollow = true
@@ -63,7 +43,7 @@ style = "Regular"
 
 [font.offset]
 x = 1
-y = 2
+y = 0
 
 [[keyboard.bindings]]
 action = "Paste"

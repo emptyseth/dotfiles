@@ -1,7 +1,9 @@
-font=terminus 11
-anchor=bottom-right
-background-color=#000000
-border-color=#868686
+font=terminus 12
+text-color=#c7ccd1
+anchor=top-right
+background-color=#1c2023
+border-color=#c7ccd1
+border-size=1
 default-timeout=10000
 sort=+time
 layer=overlay

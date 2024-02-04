@@ -1,7 +1,7 @@
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg #000000 solid_color
+output * bg $color0 solid_color
 #
 # Example configuration:
 #

@@ -8,12 +8,107 @@ set $up k
 set $right l
 set $term $TERMINAL
 set $menu sh ~/.config/sway/scripts/launcher.sh
-set $font terminus 14
+set $font "terminus 14"
+
+#
+# Colors
+#
+# Set of colors used in the theme.
+### Grayscale
+# Dark colors 0-7, bright colors 8-15
+# Black
+# set $color0  #101010
+# set $color8  #525252
+# Red
+# set $color1  #7c7c7c
+# set $color9  #7c7c7c
+# Green
+# set $color2  #8e8e8e
+# set $color10 #8e8e8e
+# Yellow
+# set $color3  #a0a0a0
+# set $color11 #a0a0a0
+# Blue
+# set $color4  #686868
+# set $color12 #686868
+# Magenta
+# set $color5  #747474
+# set $color13 #747474
+# Cyan
+# set $color6  #868686
+# set $color14 #868686
+# White
+# set $color7  #b9b9b9
+# set $color15 #f7f7f7
+# Additional
+# set $color0_alpha  #10101099
+# set $color14_alpha #86868699
+# set $color1_alpha  #7c7c7c99
+
+### Nord ###
+# Black
+# set $color0  #3B4252
+# set $color8  #4C566A
+# Red
+# set $color1  #BF616A
+# set $color9  #BF616A
+# Green
+# set $color2  #A3BE8C
+# set $color10 #A3BE8C
+# Yellow
+# set $color3  #EBCB8B
+# set $color11 #EBCB8B
+# Blue
+# set $color4  #81A1C1
+# set $color12 #81A1C1
+# Magenta
+# set $color5  #B48EAD
+# set $color13 #B48EAD
+# Cyan
+# set $color6  #88C0D0
+# set $color14 #8FBCBB
+# White
+# set $color7  #E5E9F0
+# set $color15 #ECEFF4
+# Additional
+# set $color0_alpha  #3B425299
+# set $color14_alpha #8FBCBB99
+# set $color1_alpha  #BF616A99
+
+### Ashes dark ###
+# Black
+set $color0  #1c2023
+set $color8  #747c84
+# Red
+set $color1  #c7ae95
+set $color9  #c7ae95
+# Green
+set $color2  #95c7ae
+set $color10 #95c7ae
+# Yellow
+set $color3  #aec795
+set $color11 #aec795
+# Blue
+set $color4  #ae95c7
+set $color12 #ae95c7
+# Magenta
+set $color5  #c795ae
+set $color13 #c795ae
+# Cyan
+set $color6  #95aec7
+set $color14 #95aec7
+# White
+set $color7  #c7ccd1
+set $color15 #f3f4f5
+# Additional
+set $color0_alpha  #1c202399
+set $color14_alpha #95aec799
+set $color1_alpha  #c7ae9599
 
 #
 # Custom
 #
-set $lock swaylock -f -c 000000
+set $lock swaylock -f --color=$color0 --font=$font --font-size=14 
 set $print_screen grim
 set $open_file_manager swaymsg "workspace 9; exec $TERMINAL -e $FILE"
 set $toggle_internal_display swaymsg "output $INTERNAL_DISPLAY toggle"
@@ -30,57 +125,11 @@ set $audio_stop mpc stop
 set $brightness_down brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 set $brightness_up brightnessctl set 5%+ | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 
-
 #
 # Inits
 #
 set $init_audio pipewire & pipewire-pulse & wireplumber
 set $init_notifications mako
-set $init_gamma_adj wlsunset -l 55 -L 83
+set $init_gamma_adj wlsunset -l 44 -L 20
 set $init_progress_bar rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 set $init_sync syncthing -no-browser -no-restart
-
-#
-# Colors
-#
-# Set of colors used in the theme.
-# Background and foreground
-set $col_bg  #000000
-set $col_fg  #b9b9b9
-
-# Dark colors 0-7, bright colors 8-15
-# Black
-set $color0  #101010
-set $color8  #525252
-
-# Red
-set $color1  #7c7c7c
-set $color9  #7c7c7c
-
-# Green
-set $color2  #8e8e8e
-set $color10 #8e8e8e
-
-# Yellow
-set $color3  #a0a0a0
-set $color11 #a0a0a0
-
-# Blue
-set $color4  #686868
-set $color12 #686868
-
-# Magenta
-set $color5  #747474
-set $color13 #747474
-
-# Cyan
-set $color6  #868686
-set $color14 #868686
-
-# White
-set $color7  #b9b9b9
-set $color15 #f7f7f7
-
-set $col_bg_alpha  #10101070
-set $color14_alpha #86868699
-set $color1_alpha  #7c7c7c99

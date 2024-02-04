@@ -1,9 +1,9 @@
 ### Idle configuration
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
+    timeout 300 $lock \
     timeout 300 'swaymsg "input * xkb_switch_layout 0"' \
     timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c 000000'
+    before-sleep $lock
 #
 # Example configuration:
 #
@@ -17,6 +17,8 @@ exec swayidle -w \
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 # Disable idle
+for_window [class=".*"] inhibit_idle fullscreen
+for_window [app_id=".*"] inhibit_idle fullscreen
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [class="Chromium"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle
