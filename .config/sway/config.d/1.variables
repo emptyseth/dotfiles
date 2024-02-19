@@ -109,7 +109,7 @@ set $color1_alpha  #c7ae9599
 # Custom
 #
 set $lock swaylock -f --color=$color0 --font=$font --font-size=14 
-set $print_screen grim
+set $print_screen grim -g "$(slurp)" - | wl-copy && notify-send -e "Screenshot taken"
 set $open_file_manager swaymsg "workspace 9; exec $TERMINAL -e $FILE"
 set $toggle_internal_display swaymsg "output $INTERNAL_DISPLAY toggle"
 set $start_vpn swaymsg "workspace 10; exec sh ~/.config/sway/scripts/vpn.sh"
