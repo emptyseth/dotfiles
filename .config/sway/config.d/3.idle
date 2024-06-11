@@ -2,7 +2,7 @@
 exec swayidle -w \
     timeout 300 '$lock' \
     timeout 300 'swaymsg "input * xkb_switch_layout 0"' \
-    timeout 310 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    timeout 300 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
     before-sleep '$lock'
 #
 # Example configuration:

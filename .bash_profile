@@ -11,17 +11,17 @@ export INTERNAL_DISPLAY="LVDS-1"
 export EXTERNAL_DISPLAY="VGA-1"
 export VPN_PROVIDER="protonvpn"
 export GTK_THEME="Breeze-Dark"
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Read https://wiki.archlinux.org/title/XDG_Base_Directory
-export XKB_DEFAULT_LAYOUT=us
-export XDG_SESSION_TYPE=wayland
+export XKB_DEFAULT_LAYOUT="us"
+export XDG_SESSION_TYPE="wayland"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
-export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
+export PSQL_HISTORY="$XDG_STATE_HOME/pg/psql_history"
 export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
 export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
