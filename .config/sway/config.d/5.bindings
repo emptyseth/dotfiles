@@ -17,6 +17,7 @@ bindsym --to-code {
 
     # Exit sway (logs you out of your Wayland session)
     $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
 #
 # Moving around:
 #
@@ -68,6 +69,7 @@ bindsym --to-code {
     $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    $mod+Tab workspace back_and_forth
 #
 # Layout stuff:
 #

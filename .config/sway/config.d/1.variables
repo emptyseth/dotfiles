@@ -108,7 +108,7 @@ set $color1_alpha  #c7ae9599
 #
 # Custom
 #
-set $lock swaylock -f --color=$color0 --font=$font --font-size=14 
+set $lock swaylock -f --color=$color0 --font=$font --font-size=14 --image=$XDG_DATA_HOME/bg/win.jpg
 set $print_screen grim -g "$(slurp)" - | wl-copy && notify-send -e "Screenshot taken and copied to clipboard"
 set $open_file_manager swaymsg "workspace 9; exec $TERMINAL -e $FILE"
 set $toggle_internal_display swaymsg "output $INTERNAL_DISPLAY toggle"

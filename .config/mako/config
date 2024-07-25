@@ -7,3 +7,5 @@ border-size=1
 default-timeout=10000
 sort=+time
 layer=overlay
+padding=10
+outer-margin=10,5
