@@ -1,0 +1,4 @@
+[Desktop Entry]
+Exec=/usr/bin/mpd
+Name=mpd
+Type=Application

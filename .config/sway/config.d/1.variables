@@ -124,12 +124,3 @@ set $audio_toggle mpc toggle
 set $audio_stop mpc stop
 set $brightness_down brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 set $brightness_up brightnessctl set 5%+ | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
-
-#
-# Inits
-#
-set $init_audio pipewire & pipewire-pulse & wireplumber
-set $init_notifications mako
-set $init_gamma_adj wlsunset -l 44 -L 20
-set $init_progress_bar rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
-set $init_sync syncthing -no-browser -no-restart

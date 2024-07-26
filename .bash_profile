@@ -48,6 +48,5 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"          # reset underline
 export LESSHISTFILE=-
 
 if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
-    mpd &>/dev/null
     exec sway
 fi

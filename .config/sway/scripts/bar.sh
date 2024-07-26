@@ -28,14 +28,21 @@ BATTERY_90_ICON='󰂂'
 BATTERY_100_ICON='󰁹'
 
 BATTERY_ERROR="󱟩"
+
+# Utility Functions
+exists() { command -v "$1" >/dev/null 2>&1; }
+
 get_battery()
 {
+    bat_path="/sys/class/power_supply/BAT0"
     bat_icon=$BATTERY_ERROR 
     capacity='0'
+    power_mode=$(cat /sys/firmware/acpi/platform_profile 2>/dev/null)
+
     # The vast majority of people only use one battery.
-    if [ -d /sys/class/power_supply/BAT0 ]; then
-        capacity=$(cat /sys/class/power_supply/BAT0/capacity)
-        status=$(cat /sys/class/power_supply/BAT0/status)
+    if [ -d "$bat_path" ]; then
+        capacity=$(cat "$bat_path/capacity" 2>/dev/null)
+        status=$(cat "$bat_path/status" 2>/dev/null)
 
         if [ "$status" = "Charging" ]; then
             case $capacity in
@@ -66,9 +73,11 @@ get_battery()
                 [0-9])  bat_icon=$BATTERY_0_ICON ;;
             esac
         fi
+    else
+        echo "Battery info not available"
     fi
 
-    echo "$bat_icon $capacity% $INDENT_LINE_ICON"
+    echo "$bat_icon $capacity% [$power_mode] $INDENT_LINE_ICON"
 }
 
 
@@ -79,21 +88,25 @@ VOLUME_MEDIUM_ICON='󰖀'
 VOLUME_HIGH_ICON='󰕾'
 VOLUME_MUTE_ICON='󰝟'
 get_volume(){
-    vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
-    mute=$(echo $vol | grep -o 'MUTED')
+    if exists wpctl; then
+        vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null)
+        mute=$(echo $vol | grep -o 'MUTED')
 
-    if [ "$mute" = "MUTED" ]; then
-        echo "$VOLUME_MUTE_ICON $INDENT_LINE_ICON"
+        if [ "$mute" = "MUTED" ]; then
+            echo "$VOLUME_MUTE_ICON $INDENT_LINE_ICON"
+        else
+            volume=$(echo $vol | awk -F '[: ]+' '{print $2 * 100}')
+
+            case $volume in
+                7[0-9]|8[0-9]|9[0-9]|100)       volume_icon=$VOLUME_HIGH_ICON ;;
+                3[0-9]|4[0-9]|5[0-9]|6[0-9])    volume_icon=$VOLUME_MEDIUM_ICON ;;
+                [1-9]|1[0-9]|2[0-9])            volume_icon=$VOLUME_LOW_ICON ;;
+                0)                              volume_icon=$VOLUME_OFF_ICON ;;
+            esac
+            echo "$volume_icon $volume% $INDENT_LINE_ICON"
+        fi
     else
-        volume=$(echo $vol | awk -F '[: ]+' '{print $2 * 100}')
-
-        case $volume in
-            7[0-9]|8[0-9]|9[0-9]|100)       volume_icon=$VOLUME_HIGH_ICON ;;
-            3[0-9]|4[0-9]|5[0-9]|6[0-9])    volume_icon=$VOLUME_MEDIUM_ICON ;;
-            [1-9]|1[0-9]|2[0-9])            volume_icon=$VOLUME_LOW_ICON ;;
-            0)                              volume_icon=$VOLUME_OFF_ICON ;;
-        esac
-        echo "$volume_icon $volume% $INDENT_LINE_ICON"
+        echo "Volume control not available"
     fi
 }
 
@@ -106,9 +119,11 @@ WIFI_40_ICON='󰤟'
 WIFI_20_ICON='󰤯'
 get_wifi()
 {
-    if [ "$(cat /sys/class/net/wlp0s20f3/carrier)" = "1" ]; then
+    wifi_interface=$(iw dev | awk '$1=="Interface"{print $2}' | head -n 1)
+    
+    if [ -n "$wifi_interface" ] && [ "$(cat /sys/class/net/$wifi_interface/carrier 2>/dev/null)" = "1" ]; then
         # Wifi quality percentage
-        percentage=$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70)}'| xargs)
+        percentage=$(grep "^\s*$wifi_interface" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70) }' | xargs)
         case $percentage in
             100|9[0-9]|8[0-9])  wifi_icon=$WIFI_100_ICON ;;
             7[0-9]|6[0-9])      wifi_icon=$WIFI_80_ICON ;;
@@ -116,6 +131,8 @@ get_wifi()
             3[0-9]|2[0-9])      wifi_icon=$WIFI_40_ICON ;;
             1[0-9]|[0-9])       wifi_icon=$WIFI_20_ICON ;;
         esac
+
+        # ssid=$(iw dev "$wifi_interface" link | awk '/SSID/{print $2}')
 
         echo "$wifi_icon"
     fi
@@ -125,7 +142,10 @@ get_wifi()
 ETHERNET_ICON='󰈀'
 get_ethernet()
 {
-    [ "$(cat /sys/class/net/enp0s25/carrier)" = "1" ] && echo "$ETHERNET_ICON $INDENT_LINE_ICON"
+    ethernet_interface=$(ip link | awk -F': ' '$2 ~ /^en/{print $2}' | head -n 1)
+    if [ -n "$ethernet_interface" ] && [ "$(cat /sys/class/net/$ethernet_interface/carrier 2>/dev/null)" = "1" ]; then
+        echo "$ETHERNET_ICON $INDENT_LINE_ICON"
+    fi
 }
 
 
@@ -204,7 +224,7 @@ is_output_enabled()
     echo $(swaymsg -t get_outputs | awk '/name/;/active/' | grep -A1 $1 | grep true)
 }
 
-# Enables internal display if external display is unnplugged
+# Enables internal display if external display is unplugged
 enable_internal_display()
 {
     [ "$(is_output_enabled $EXTERNAL_DISPLAY)" ] ||

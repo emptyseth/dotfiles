@@ -1,0 +1,4 @@
+[Desktop Entry]
+Exec=/usr/bin/pipewire-pulse
+Name=pipewire-pulse
+Type=Application

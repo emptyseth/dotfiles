@@ -1,0 +1,4 @@
+[Desktop Entry]
+Exec=/usr/bin/wlsunset -l 44 -L 20
+Name=wlsunset
+Type=Application

@@ -1,11 +1,8 @@
 # Disable xwayland
 # xwayland disable
 
-exec $init_audio
-exec $init_notifications
-exec $init_gamma_adj
-exec $init_progress_bar
-exec $init_sync
+exec dex -a -e sway
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 
 set $gnome-schema org.gnome.desktop.interface
 
