@@ -3,6 +3,7 @@
 
 exec dex -a -e sway
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
+exec dbus-update-activation-environment --all
 
 set $gnome-schema org.gnome.desktop.interface
 
