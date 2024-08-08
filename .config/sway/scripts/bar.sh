@@ -144,7 +144,7 @@ get_ethernet()
 {
     ethernet_interface=$(ip link | awk -F': ' '$2 ~ /^en/{print $2}' | head -n 1)
     if [ -n "$ethernet_interface" ] && [ "$(cat /sys/class/net/$ethernet_interface/carrier 2>/dev/null)" = "1" ]; then
-        echo "$ETHERNET_ICON $INDENT_LINE_ICON"
+        echo "$ETHERNET_ICON"
     fi
 }
 
