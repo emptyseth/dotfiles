@@ -35,9 +35,6 @@ export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export GPG_TTY="$(tty)"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-export MOZ_DBUS_REMOTE=1
-export GTK_USE_PORTAL=0 
-export XDG_CURRENT_DESKTOP="sway"
 
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"       # begin blink
@@ -50,5 +47,10 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"          # reset underline
 export LESSHISTFILE=-
 
 if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
+    export XDG_CURRENT_DESKTOP="sway"
+    export MOZ_DBUS_REMOTE=1
+    export GTK_USE_PORTAL=0 
+    export WOBSOCK=$XDG_RUNTIME_DIR/wob.sock
+
     exec dbus-run-session sway
 fi

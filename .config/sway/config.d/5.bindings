@@ -161,6 +161,7 @@ bindsym --to-code {
     $mod+Control+Shift+Down move workspace to output down
     $mod+Control+Shift+Up move workspace to output up
 
+    XF86AudioMicMute        exec $mic_mute
     XF86AudioMute           exec $audio_mute
     XF86AudioLowerVolume    exec $audio_lower_volume
     XF86AudioRaiseVolume    exec $audio_raise_volume

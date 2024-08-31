@@ -114,10 +114,10 @@ set $open_file_manager swaymsg "workspace 9; exec $TERMINAL -e $FILE"
 set $toggle_internal_display swaymsg "output $INTERNAL_DISPLAY toggle"
 set $start_vpn swaymsg "workspace 10; exec sh ~/.config/sway/scripts/vpn.sh"
 
-set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-set $audio_mute wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 0 > $WOBSOCK) || wpctl get-volume @DEFAULT_AUDIO_SINK@ > $WOBSOCK
-set $audio_raise_volume wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK
-set $audio_lower_volume wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK
+set $mic_mute wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+set $audio_mute wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 0 > $WOBSOCK) || wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK
+set $audio_raise_volume (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 0 > $WOBSOCK) || (wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK)
+set $audio_lower_volume (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 0 > $WOBSOCK) || (wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%- && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK)
 set $audio_next mpc next
 set $audio_prev mpc prev
 set $audio_toggle mpc toggle
