@@ -178,13 +178,7 @@ get_date()
 # Prints out language
 get_language()
 {
-    language=$(swaymsg -r -t get_inputs | grep -m 1 'xkb_active_layout_name' | awk -F '"' '{print $4}')
-
-    if [ "$language" = "Russian" ]; then
-        echo "РУС"
-    else
-        echo "ENG"
-    fi
+    echo $(swaymsg -r -t get_inputs | grep -m 1 'xkb_active_layout_name' | awk -F '"' '{print toupper(substr($4,0,3))}')
 }
 
 # Prints the total ram and used ram in Mb
