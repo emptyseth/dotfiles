@@ -24,23 +24,40 @@ if ! command -v xbps-query >/dev/null 2>&1; then
     exit 1
 fi
 
+# Get list of installed packages (trimmed of versions)
+INSTALLED_PACKAGES="$(mktemp)"
+xbps-query -m | sed 's/-[0-9r][0-9._]*_[0-9]*$//' > "$INSTALLED_PACKAGES"
+
 # Create header
 echo "Package,Musl Support,Description" > "$TEMP_FILE"
 
-# Read CSV file line by line, skip header
-tail -n +2 "$CSV_FILE" > "${TEMP_FILE}.input"
-while IFS=',' read -r package musl_support description; do
-    # Remove quotes from package name if present
-    package=$(echo "$package" | sed 's/^"//;s/"$//')
+# Process all installed packages
+while read -r installed_pkg; do
+    # Check if package exists in CSV with existing info
+    existing_entry=$(grep "^$installed_pkg," "$CSV_FILE" 2>/dev/null | head -n 1)
     
-    # Write to temp file (no installation status)
-    echo "$package,$musl_support,$description" >> "$TEMP_FILE"
-done < "${TEMP_FILE}.input"
+    if [ -n "$existing_entry" ]; then
+        # Use existing entry from CSV
+        echo "$existing_entry" >> "$TEMP_FILE"
+    else
+        # Add new package with description lookup
+        desc=$(xbps-query -R "$installed_pkg" 2>/dev/null | grep '^short_desc:' | sed 's/^short_desc: *//' | sed 's/"/\\"/g')
+        if [ -z "$desc" ]; then
+            desc="Package auto-added from system"
+        fi
+        echo "$installed_pkg,Unknown,\"$desc\"" >> "$TEMP_FILE"
+    fi
+done < "$INSTALLED_PACKAGES"
 
 # Clean up
-rm -f "${TEMP_FILE}.input"
+rm -f "$INSTALLED_PACKAGES"
+
+# Sort the entries by package name (excluding header)
+SORTED_FILE="$(mktemp)"
+head -n 1 "$TEMP_FILE" > "$SORTED_FILE"
+tail -n +2 "$TEMP_FILE" | sort >> "$SORTED_FILE"
 
 # Replace original file
-mv "$TEMP_FILE" "$CSV_FILE"
+mv "$SORTED_FILE" "$CSV_FILE"
 
-echo "Updated $CSV_FILE with installation status"
+echo "Updated $CSV_FILE with new packages"
