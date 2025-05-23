@@ -15,7 +15,7 @@
 
 ### Installation
 
-Read (https://www.atlassian.com/git/tutorials/dotfiles) for more information
+Read https://www.atlassian.com/git/tutorials/dotfiles for more information
 
 ### Screenshots
 
