@@ -55,7 +55,7 @@ minigalaxy,Yes,Simple GOG client for Linux
 mpc,Yes,Minimalist command line interface to MPD
 mpd,Yes,Music Player Daemon
 mpv,Yes,Video player based on MPlayer/mplayer2
-nano,Yes,Small, friendly text editor inspired by Pico
+nano,Yes,Small text editor inspired by Pico
 ncdu,Yes,NCurses Disk Usage analyzer
 ncmpcpp,Yes,NCurses MPD client inspired by ncmpc
 neovim,Yes,Fork of Vim focused on extensibility and usability
