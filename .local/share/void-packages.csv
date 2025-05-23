@@ -27,7 +27,7 @@ docker,Yes,Open source containerization platform
 docker-compose,Yes,Tool for defining and running multi-container Docker applications
 elogind,Yes,Standalone fork of systemd's logind
 fastfetch,Yes,Fast system information tool
-fd,Yes,Simple, fast and user-friendly alternative to find
+fd,Yes,Fast and user-friendly alternative to find
 ffmpeg,Yes,Multimedia framework, able to decode, encode, transcode and more
 firefox,Yes,Mozilla Firefox web browser
 fzf,Yes,Command-line fuzzy finder
