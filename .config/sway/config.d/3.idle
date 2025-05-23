@@ -22,4 +22,4 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [class="Chromium"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle
-for_window [app_id="Launcher"] floating enable
+for_window [app_id="com.emptyseth.launcher"] floating enable

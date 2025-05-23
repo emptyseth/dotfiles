@@ -14,10 +14,15 @@ bar {
     status_command while ~/.config/sway/scripts/bar.sh; do sleep 0.5; done
 
     colors {
-        background $color0
-        statusline $color7
-        #                   <border>    <background>    <text>
-        inactive_workspace  $color0     $color0         $color7
-        focused_workspace   $color14    $color0         $color14
+        background         $base
+        statusline         $text
+        focused_statusline $text
+        focused_separator  $base
+
+        # target           border bg        text
+        focused_workspace  $base  $mauve    $crust
+        active_workspace   $base  $surface2 $text
+        inactive_workspace $base  $base     $text
+        urgent_workspace   $base  $red      $crust
     }
 }

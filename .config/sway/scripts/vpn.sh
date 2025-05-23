@@ -18,7 +18,7 @@
 enable_vpn()
 {
     if [ "$VPN_PROVIDER" = 'protonvpn' ]; then
-        [ "$TERMINAL" = 'alacritty' ] && alacritty -e bash -c 'sudo protonvpn c'
+        $TERM -e bash -c 'sudo protonvpn c'
     fi
 }
 

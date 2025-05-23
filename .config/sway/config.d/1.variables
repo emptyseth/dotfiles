@@ -6,111 +6,48 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term $TERMINAL
+set $term $TERM
 set $menu sh ~/.config/sway/scripts/launcher.sh
-set $font "terminus 14"
+set $font "Terminess Nerd Font 15"
 
 #
 # Colors
 #
 # Set of colors used in the theme.
-### Grayscale
-# Dark colors 0-7, bright colors 8-15
-# Black
-# set $color0  #101010
-# set $color8  #525252
-# Red
-# set $color1  #7c7c7c
-# set $color9  #7c7c7c
-# Green
-# set $color2  #8e8e8e
-# set $color10 #8e8e8e
-# Yellow
-# set $color3  #a0a0a0
-# set $color11 #a0a0a0
-# Blue
-# set $color4  #686868
-# set $color12 #686868
-# Magenta
-# set $color5  #747474
-# set $color13 #747474
-# Cyan
-# set $color6  #868686
-# set $color14 #868686
-# White
-# set $color7  #b9b9b9
-# set $color15 #f7f7f7
-# Additional
-# set $color0_alpha  #10101099
-# set $color14_alpha #86868699
-# set $color1_alpha  #7c7c7c99
-
-### Nord ###
-# Black
-# set $color0  #3B4252
-# set $color8  #4C566A
-# Red
-# set $color1  #BF616A
-# set $color9  #BF616A
-# Green
-# set $color2  #A3BE8C
-# set $color10 #A3BE8C
-# Yellow
-# set $color3  #EBCB8B
-# set $color11 #EBCB8B
-# Blue
-# set $color4  #81A1C1
-# set $color12 #81A1C1
-# Magenta
-# set $color5  #B48EAD
-# set $color13 #B48EAD
-# Cyan
-# set $color6  #88C0D0
-# set $color14 #8FBCBB
-# White
-# set $color7  #E5E9F0
-# set $color15 #ECEFF4
-# Additional
-# set $color0_alpha  #3B425299
-# set $color14_alpha #8FBCBB99
-# set $color1_alpha  #BF616A99
-
-### Ashes dark ###
-# Black
-set $color0  #1c2023
-set $color8  #747c84
-# Red
-set $color1  #c7ae95
-set $color9  #c7ae95
-# Green
-set $color2  #95c7ae
-set $color10 #95c7ae
-# Yellow
-set $color3  #aec795
-set $color11 #aec795
-# Blue
-set $color4  #ae95c7
-set $color12 #ae95c7
-# Magenta
-set $color5  #c795ae
-set $color13 #c795ae
-# Cyan
-set $color6  #95aec7
-set $color14 #95aec7
-# White
-set $color7  #c7ccd1
-set $color15 #f3f4f5
-# Additional
-set $color0_alpha  #1c202399
-set $color14_alpha #95aec799
-set $color1_alpha  #c7ae9599
+### Catppuccin-Macchiato ###
+set $rosewater #f4dbd6
+set $flamingo #f0c6c6
+set $pink #f5bde6
+set $mauve #c6a0f6
+set $red #ed8796
+set $maroon #ee99a0
+set $peach #f5a97f
+set $yellow #eed49f
+set $green #a6da95
+set $teal #8bd5ca
+set $sky #91d7e3
+set $sapphire #7dc4e4
+set $blue #8aadf4
+set $lavender #b7bdf8
+set $text #cad3f5
+set $subtext1 #b8c0e0
+set $subtext0 #a5adcb
+set $overlay2 #939ab7
+set $overlay1 #8087a2
+set $overlay0 #6e738d
+set $surface2 #5b6078
+set $surface1 #494d64
+set $surface0 #363a4f
+set $base #24273a
+set $mantle #1e2030
+set $crust #181926
 
 #
 # Custom
 #
-set $lock swaylock -f --color=$color0 --font=$font --font-size=14 --image=$XDG_DATA_HOME/bg/win.jpg
+set $lock swaylock
 set $print_screen grim -g "$(slurp)" - | wl-copy && notify-send -e "Screenshot taken and copied to clipboard"
-set $open_file_manager swaymsg "workspace 9; exec $TERMINAL -e $FILE"
+set $open_file_manager swaymsg "workspace 9; exec $TERM -e $FILE"
 set $toggle_internal_display swaymsg "output $INTERNAL_DISPLAY toggle"
 set $start_vpn swaymsg "workspace 10; exec sh ~/.config/sway/scripts/vpn.sh"
 

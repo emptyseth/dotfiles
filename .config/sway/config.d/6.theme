@@ -2,10 +2,13 @@
 # Defines the color style for each window.
 # The format is client.<class> <border> <background> <text> <indicator> <child_border>
 # Client indicates any window. For more informations, see man 5 sway.
-client.unfocused        $color8         $color8         $color7     $color8         $color8
-client.focused_inactive $color0         $color0         $color7     $color0_alpha   $color0_alpha
-client.focused          $color14        $color14        $color7     $color14        $color14
-client.urgent           $color1_alpha   $color1_alpha   $color7     $color1_alpha   $color1_alpha
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
 
 #
 # Defines the geometry of every window and its alignment regarding other windows and the workspace.

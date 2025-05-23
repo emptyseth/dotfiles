@@ -1,0 +1,18 @@
+# Font configuration
+font-family = "Terminess Nerd Font"
+font-size = 15
+
+# Use built-in Catppuccin theme (Macchiato variant)
+theme = catppuccin-macchiato
+
+# Window opacity (0.0 = transparent, 1.0 = opaque)
+background-opacity = 0.85
+background-blur = true
+
+# Window padding
+window-padding-x = 10
+window-padding-y = 10
+window-decoration = false
+cursor-style = block
+mouse-hide-while-typing = true
+confirm-close-surface = false

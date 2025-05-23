@@ -1,7 +1,7 @@
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $color0 solid_color
+output * bg $XDG_DATA_HOME/bg/bg.png stretch
 #
 # Example configuration:
 #

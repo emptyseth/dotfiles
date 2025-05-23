@@ -4,12 +4,18 @@
 
 - **Protocol:** Wayland
 - **Windows Manager:** [Sway](https://github.com/swaywm/sway)
-- **Terminal:** [Alacritty](https://github.com/alacritty/alacritty)
-- **Launcher:** Alacritty + fzf
+- **Terminal:** [Ghostty](https://github.com/ghostty-org/ghostty)
+- **Launcher:** Ghostty + fzf
 - **Notifications:** [Maco](https://github.com/emersion/mako)
 - **Progress Bar:** [Wob](https://github.com/francma/wob)
-- **Screenshots:** [Grim](https://github.com/emersion/grim)
-- **Font:** Terminus
+- **Screenshots:** [Grim](https://github.com/emersion/grim) + [Slurp](https://github.com/emersion/slurp)
+- **File Manager:** [Yazi](https://github.com/sxyazi/yazi)
+- **Font:** Terminess Nerd Font
+- **Theme:** [Catppuccin-Macchiato](https://github.com/catppuccin/catppuccin)
+
+### Installation
+
+1.
 
 ### Screenshots
 

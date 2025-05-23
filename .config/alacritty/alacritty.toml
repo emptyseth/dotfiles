@@ -14,7 +14,7 @@ unfocused_hollow = true
 shape = "Block"
 
 [font]
-size = 14.0
+size = 13.0
 
 [font.bold]
 family = "terminus"
@@ -120,7 +120,8 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 decorations = "none"
 dynamic_padding = false
 dynamic_title = true
-opacity = 1.0
+opacity = 0.9
+blur = true
 startup_mode = "Windowed"
 
 [window.dimensions]
@@ -135,5 +136,5 @@ y = 10
 
 live_config_reload = true
 import = [
-    "~/.config/alacritty/themes/ashes_dark.toml"
+    "~/.config/alacritty/themes/catppuccin-macchiato.toml"
 ]

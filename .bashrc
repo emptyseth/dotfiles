@@ -26,3 +26,5 @@ case ":$PATH:" in
 esac
 # pnpm end
 export PATH=$HOME/.local/bin:$PATH
+
+. "$HOME/.local/share/../bin/env"
