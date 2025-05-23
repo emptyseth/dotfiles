@@ -1,115 +1,115 @@
 Package,Musl Support,Description
-7zip,Yes,File archiver with a high compression ratio
-ImageMagick,Yes,Package for display and interactive manipulation of images
-Kooha,Yes,Simple screen recorder for GNOME
-OTPClient,Yes,OTP client supporting both TOTP and HOTP
-acpi,Yes,Displays information on ACPI devices
-alacritty,Yes,Cross-platform GPU-accelerated terminal emulator
-alsa-tools,Yes,Advanced Linux Sound Architecture (ALSA) tools
-android-tools,Yes,Android platform tools
-android-udev-rules,Yes,Udev rules for Android devices
-aws-cli,Yes,Universal Command Line Interface for Amazon Web Services
-base-devel,Yes,Void Linux development tools meta package
-base-system,Yes,Void Linux base system meta package
-bind-utils,Yes,Berkeley Internet Name Domain (DNS) server utilities
-bleachbit,Yes,Tool to clean your system and free disk space
-blueman,Yes,GTK+ Bluetooth Manager
-breeze,Yes,Breeze visual style for the Plasma Desktop
-breeze-gtk,Yes,Breeze widget theme for GTK-based applications
-brightnessctl,Yes,Lightweight brightness control tool
-chromium,Partial,Google's open source chromium web browser (with some musl issues)
-chrony,Yes,Versatile implementation of the Network Time Protocol
-cryptsetup,Yes,Utility for setting up encrypted disk partitions
-curl,Yes,Tool for transferring files with URL syntax
-dbeaver,Partial,Free universal SQL Client (may require glibc compatibility workarounds)
-dex,Yes,Program to generate and execute DesktopEntry files
-docker,Yes,Open source containerization platform
-docker-compose,Yes,Tool for defining and running multi-container Docker applications
-elogind,Yes,Standalone fork of systemd's logind
-fastfetch,Yes,Fast system information tool
-fd,Yes,Fast and user-friendly alternative to find
-ffmpeg,Yes,Multimedia framework able to decode encode transcode and more
-firefox,Yes,Mozilla Firefox web browser
-fzf,Yes,Command-line fuzzy finder
-ghostty,Yes,Modern terminal emulator
-git,Yes,Distributed revision control system
-github-cli,Yes,GitHub's official command line tool
-go,Yes,Go Programming Language
-grim,Yes,Grab images from a Wayland compositor
-grub-x86_64-efi,Yes,GRand Unified Bootloader (EFI)
-highlight,Yes,Converts source code to formatted text with syntax highlighting
-htop,Yes,Interactive process viewer
-imv,Yes,Image viewer for X11/Wayland
-innoextract,Yes,Tool to extract installers created by Inno Setup
-intel-video-accel,Yes,Intel VA-API acceleration
-iwd,Yes,Wireless daemon for Linux
-jq,Yes,Command-line JSON processor
-libnotify,Yes,Desktop notification library
-libreoffice,Partial,Office productivity suite (may require glibc compatibility workarounds)
-libspa-bluetooth,Yes,Bluetooth support for PipeWire
-lsof,Yes,Lists open files for running processes
-make,Yes,Program for compiling packages
-mako,Yes,Lightweight notification daemon for Wayland
-mesa-intel-dri,Yes,Mesa DRI drivers for Intel GPUs
-minigalaxy,Yes,Simple GOG client for Linux
-mpc,Yes,Minimalist command line interface to MPD
-mpd,Yes,Music Player Daemon
-mpv,Yes,Video player based on MPlayer/mplayer2
-nano,Yes,Small text editor inspired by Pico
-ncdu,Yes,NCurses Disk Usage analyzer
-ncmpcpp,Yes,NCurses MPD client inspired by ncmpc
-neovim,Yes,Fork of Vim focused on extensibility and usability
-nerd-fonts,Yes,Collection of fonts with glyphs
-noto-fonts-cjk,Yes,Google Noto CJK fonts
-noto-fonts-emoji,Yes,Google Noto emoji fonts
-noto-fonts-ttf,Yes,Google Noto TTF fonts
-ntfs-3g,Yes,NTFS filesystem driver and utilities
-openresolv,Yes,Management framework for resolv.conf
-pipewire,Yes,Server and user space API to deal with multimedia pipelines
-polkit,Yes,Framework for controlling system-wide privileges
-poppler-utils,Yes,PDF utilities (based on poppler)
-postgresql,Yes,PostgreSQL database server
-postgresql-client,Yes,PostgreSQL client
-postgresql-libs-devel,Yes,PostgreSQL shared libraries (development files)
-proxychains-ng,Yes,Proxifier for SOCKS and HTTP proxy servers
-python3-devel,Yes,Python3 development files
-python3-pip,Yes,Python package installer
-python3-psutil,Yes,Python module for gathering system information
-python3-psycopg2,Yes,PostgreSQL adapter for Python
-python3-pyclip,Yes,Cross-platform clipboard module for Python
-qbittorrent,Yes,Free software alternative to µTorrent
-qt5ct,Yes,Qt5 Configuration Tool
-qt6ct,Yes,Qt6 Configuration Tool
-rkhunter,Yes,Rootkit, backdoor, sniffer and exploit scanner
-shadowsocks-libev,Yes,Secure SOCKS5 proxy
-slack-desktop,No,Slack official desktop client (proprietary, glibc only)
-slurp,Yes,Select a region in Wayland compositors
-sof-firmware,Yes,Sound Open Firmware
-sway,Yes,Tiling Wayland compositor compatible with i3
-swayidle,Yes,Idle management daemon for Wayland
-swaylock,Yes,Screen locker for Wayland
-syncthing,Yes,Open Source Continuous File Synchronization
-telegram-desktop,Partial,Messaging app with a focus on speed and security (may require workarounds on musl)
-terminus-font,Yes,Clean, fixed-width font
-tlp,Yes,Advanced power management tool for Linux
-torbrowser-launcher,Yes,Securely download and run Tor Browser
-tzupdate,Yes,Set the system timezone based on IP geolocation
-unzip,Yes,List, test and extract compressed files in a ZIP archive
-void-docs,Yes,Void Linux documentation
-vscode,No,Microsoft's open source code editor (glibc only)
-waydroid,Yes,Container-based approach to boot Android system on Linux
-wget,Yes,Network utility to retrieve files from the web
-wireguard,Yes,Fast, modern and secure VPN tunnel
-wl-clipboard,Yes,Command-line copy/paste utilities for Wayland
-wlsunset,Yes,Day/night gamma adjustments for Wayland
-wob,Yes,Wayland overlay bar
-xdg-desktop-portal-wlr,Yes,xdg-desktop-portal backend for wlroots
-xdg-user-dirs,Yes,Tool to manage user directories
-xmirror,Yes,Utility to help mirror Void Linux packages
-xtools-minimal,Yes,Helpers for working with XBPS (Void package system)
-yazi,Yes,Terminal file manager
-yt-dlp,Yes,Command-line program to download videos
-zathura-cb,Yes,Comic book support for zathura
-zathura-pdf-poppler,Yes,PDF support for zathura
-zip,Yes,Create/update ZIP files compatible with pkzip
-zoxide,Yes,Smarter cd command with intelligent directory jumping
+7zip,Yes,"File archiver with a high compression ratio"
+ImageMagick,Yes,"Package for display and interactive manipulation of images"
+Kooha,Yes,"Simple screen recorder for GNOME"
+OTPClient,Yes,"OTP client supporting both TOTP and HOTP"
+acpi,Yes,"Displays information on ACPI devices"
+alacritty,Yes,"Cross-platform GPU-accelerated terminal emulator"
+alsa-tools,Yes,"Advanced Linux Sound Architecture (ALSA) tools"
+android-tools,Yes,"Android platform tools"
+android-udev-rules,Yes,"Udev rules for Android devices"
+aws-cli,Yes,"Universal Command Line Interface for Amazon Web Services"
+base-devel,Yes,"Void Linux development tools meta package"
+base-system,Yes,"Void Linux base system meta package"
+bind-utils,Yes,"Berkeley Internet Name Domain (DNS) server utilities"
+bleachbit,Yes,"Tool to clean your system and free disk space"
+blueman,Yes,"GTK+ Bluetooth Manager"
+breeze,Yes,"Breeze visual style for the Plasma Desktop"
+breeze-gtk,Yes,"Breeze widget theme for GTK-based applications"
+brightnessctl,Yes,"Lightweight brightness control tool"
+chromium,Partial,"Google's open source chromium web browser (with some musl issues)"
+chrony,Yes,"Versatile implementation of the Network Time Protocol"
+cryptsetup,Yes,"Utility for setting up encrypted disk partitions"
+curl,Yes,"Tool for transferring files with URL syntax"
+dbeaver,Partial,"Free universal SQL Client (may require glibc compatibility workarounds)"
+dex,Yes,"Program to generate and execute DesktopEntry files"
+docker,Yes,"Open source containerization platform"
+docker-compose,Yes,"Tool for defining and running multi-container Docker applications"
+elogind,Yes,"Standalone fork of systemd's logind"
+fastfetch,Yes,"Fast system information tool"
+fd,Yes,"Simple, fast and user-friendly alternative to find"
+ffmpeg,Yes,"Multimedia framework, able to decode, encode, transcode and more"
+firefox,Yes,"Mozilla Firefox web browser"
+fzf,Yes,"Command-line fuzzy finder"
+ghostty,Yes,"Modern terminal emulator"
+git,Yes,"Distributed revision control system"
+github-cli,Yes,"GitHub's official command line tool"
+go,Yes,"Go Programming Language"
+grim,Yes,"Grab images from a Wayland compositor"
+grub-x86_64-efi,Yes,"GRand Unified Bootloader (EFI)"
+highlight,Yes,"Converts source code to formatted text with syntax highlighting"
+htop,Yes,"Interactive process viewer"
+imv,Yes,"Image viewer for X11/Wayland"
+innoextract,Yes,"Tool to extract installers created by Inno Setup"
+intel-video-accel,Yes,"Intel VA-API acceleration"
+iwd,Yes,"Wireless daemon for Linux"
+jq,Yes,"Command-line JSON processor"
+libnotify,Yes,"Desktop notification library"
+libreoffice,Partial,"Office productivity suite (may require glibc compatibility workarounds)"
+libspa-bluetooth,Yes,"Bluetooth support for PipeWire"
+lsof,Yes,"Lists open files for running processes"
+make,Yes,"Program for compiling packages"
+mako,Yes,"Lightweight notification daemon for Wayland"
+mesa-intel-dri,Yes,"Mesa DRI drivers for Intel GPUs"
+minigalaxy,Yes,"Simple GOG client for Linux"
+mpc,Yes,"Minimalist command line interface to MPD"
+mpd,Yes,"Music Player Daemon"
+mpv,Yes,"Video player based on MPlayer/mplayer2"
+nano,Yes,"Small, friendly text editor inspired by Pico"
+ncdu,Yes,"NCurses Disk Usage analyzer"
+ncmpcpp,Yes,"NCurses MPD client inspired by ncmpc"
+neovim,Yes,"Fork of Vim focused on extensibility and usability"
+nerd-fonts,Yes,"Collection of fonts with glyphs"
+noto-fonts-cjk,Yes,"Google Noto CJK fonts"
+noto-fonts-emoji,Yes,"Google Noto emoji fonts"
+noto-fonts-ttf,Yes,"Google Noto TTF fonts"
+ntfs-3g,Yes,"NTFS filesystem driver and utilities"
+openresolv,Yes,"Management framework for resolv.conf"
+pipewire,Yes,"Server and user space API to deal with multimedia pipelines"
+polkit,Yes,"Framework for controlling system-wide privileges"
+poppler-utils,Yes,"PDF utilities (based on poppler)"
+postgresql,Yes,"PostgreSQL database server"
+postgresql-client,Yes,"PostgreSQL client"
+postgresql-libs-devel,Yes,"PostgreSQL shared libraries (development files)"
+proxychains-ng,Yes,"Proxifier for SOCKS and HTTP proxy servers"
+python3-devel,Yes,"Python3 development files"
+python3-pip,Yes,"Python package installer"
+python3-psutil,Yes,"Python module for gathering system information"
+python3-psycopg2,Yes,"PostgreSQL adapter for Python"
+python3-pyclip,Yes,"Cross-platform clipboard module for Python"
+qbittorrent,Yes,"Free software alternative to µTorrent"
+qt5ct,Yes,"Qt5 Configuration Tool"
+qt6ct,Yes,"Qt6 Configuration Tool"
+rkhunter,Yes,"Rootkit, backdoor, sniffer and exploit scanner"
+shadowsocks-libev,Yes,"Secure SOCKS5 proxy"
+slack-desktop,No,"Slack official desktop client (proprietary, glibc only)"
+slurp,Yes,"Select a region in Wayland compositors"
+sof-firmware,Yes,"Sound Open Firmware"
+sway,Yes,"Tiling Wayland compositor compatible with i3"
+swayidle,Yes,"Idle management daemon for Wayland"
+swaylock,Yes,"Screen locker for Wayland"
+syncthing,Yes,"Open Source Continuous File Synchronization"
+telegram-desktop,Partial,"Messaging app with a focus on speed and security (may require workarounds on musl)"
+terminus-font,Yes,"Clean, fixed-width font"
+tlp,Yes,"Advanced power management tool for Linux"
+torbrowser-launcher,Yes,"Securely download and run Tor Browser"
+tzupdate,Yes,"Set the system timezone based on IP geolocation"
+unzip,Yes,"List, test and extract compressed files in a ZIP archive"
+void-docs,Yes,"Void Linux documentation"
+vscode,No,"Microsoft's open source code editor (glibc only)"
+waydroid,Yes,"Container-based approach to boot Android system on Linux"
+wget,Yes,"Network utility to retrieve files from the web"
+wireguard,Yes,"Fast, modern and secure VPN tunnel"
+wl-clipboard,Yes,"Command-line copy/paste utilities for Wayland"
+wlsunset,Yes,"Day/night gamma adjustments for Wayland"
+wob,Yes,"Wayland overlay bar"
+xdg-desktop-portal-wlr,Yes,"xdg-desktop-portal backend for wlroots"
+xdg-user-dirs,Yes,"Tool to manage user directories"
+xmirror,Yes,"Utility to help mirror Void Linux packages"
+xtools-minimal,Yes,"Helpers for working with XBPS (Void package system)"
+yazi,Yes,"Terminal file manager"
+yt-dlp,Yes,"Command-line program to download videos"
+zathura-cb,Yes,"Comic book support for zathura"
+zathura-pdf-poppler,Yes,"PDF support for zathura"
+zip,Yes,"Create/update ZIP files compatible with pkzip"
+zoxide,Yes,"Smarter cd command with intelligent directory jumping"
