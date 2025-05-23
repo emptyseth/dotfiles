@@ -7,7 +7,7 @@ set $down j
 set $up k
 set $right l
 set $term $TERM
-set $menu sh ~/.config/sway/scripts/launcher.sh
+set $menu sh ~/.local/share/bin/launcher.sh
 set $font "Terminess Nerd Font 15"
 
 #
@@ -49,7 +49,7 @@ set $lock swaylock
 set $print_screen grim -g "$(slurp)" - | wl-copy && notify-send -e "Screenshot taken and copied to clipboard"
 set $open_file_manager swaymsg "workspace 9; exec $TERM -e $FILE"
 set $toggle_internal_display swaymsg "output $INTERNAL_DISPLAY toggle"
-set $start_vpn swaymsg "workspace 10; exec sh ~/.config/sway/scripts/vpn.sh"
+set $start_vpn swaymsg "workspace 10; exec sh ~/.local/share/bin/vpn.sh"
 
 set $mic_mute wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 set $audio_mute wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 0 > $WOBSOCK) || wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > $WOBSOCK

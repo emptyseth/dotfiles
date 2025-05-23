@@ -12,8 +12,8 @@ start_launcher()
             ghostty --class=com.emptyseth.launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
             ;;
         *)
-            # Default to alacritty if TERMINAL is not set or recognized
-            alacritty --class com.emptyseth.launcher -e "bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'"
+            # Default to alacritty if TERM is not set or recognized
+            "${TERM:-alacritty}" --class com.emptyseth.launcher -e bash -c 'compgen -c | grep -v fzf | sort -u | fzf --layout=reverse | xargs -r swaymsg -t command exec'
             ;;
     esac
 }
