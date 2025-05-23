@@ -28,7 +28,7 @@ docker-compose,Yes,Tool for defining and running multi-container Docker applicat
 elogind,Yes,Standalone fork of systemd's logind
 fastfetch,Yes,Fast system information tool
 fd,Yes,Fast and user-friendly alternative to find
-ffmpeg,Yes,Multimedia framework, able to decode, encode, transcode and more
+ffmpeg,Yes,Multimedia framework able to decode encode transcode and more
 firefox,Yes,Mozilla Firefox web browser
 fzf,Yes,Command-line fuzzy finder
 ghostty,Yes,Modern terminal emulator
