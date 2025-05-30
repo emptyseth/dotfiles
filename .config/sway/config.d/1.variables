@@ -8,7 +8,7 @@ set $up k
 set $right l
 set $term $TERM
 set $menu sh ~/.local/share/bin/launcher.sh
-set $font "Terminess Nerd Font 15"
+set $font "Terminess Nerd Font 13"
 
 #
 # Colors

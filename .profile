@@ -13,7 +13,7 @@ export VPN_PROVIDER="protonvpn"
 export GTK_THEME="Breeze-Dark"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_QPA_PLATFORM="wayland-egl"
-export FONT="terminus"
+export FONT="Terminess Nerd Font"
 
 # Theme
 export COLOR_ROSEWATER="#f4dbd6"
@@ -82,11 +82,11 @@ export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"       # begin underline
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"          # reset underline
 export LESSHISTFILE=-
 
-if [ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ]; then
+if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
     export XDG_CURRENT_DESKTOP="sway"
     export MOZ_DBUS_REMOTE=1
     export GTK_USE_PORTAL=0 
-    export WOBSOCK=$XDG_RUNTIME_DIR/wob.sock
+    export WOBSOCK="$XDG_RUNTIME_DIR/wob.sock"
 
     exec dbus-run-session sway
 fi

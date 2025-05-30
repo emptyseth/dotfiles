@@ -1,6 +1,6 @@
 # Font configuration
 font-family = "Terminess Nerd Font"
-font-size = 15
+font-size = 14
 
 # Use built-in Catppuccin theme (Macchiato variant)
 theme = catppuccin-macchiato
