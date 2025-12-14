@@ -1,0 +1,18 @@
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+default_border            pixel 1
+default_floating_border   pixel 1
+titlebar_border_thickness 1
+hide_edge_borders none
+smart_borders off
+gaps outer 0
+gaps inner 3
+smart_gaps off
+
+focus_on_window_activation smart
+popup_during_fullscreen smart

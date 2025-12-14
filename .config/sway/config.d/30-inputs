@@ -1,0 +1,16 @@
+input type:keyboard {
+    xkb_layout us,ru
+    xkb_options grp:caps_toggle
+}
+
+input type:touchpad {
+    events disabled
+}
+
+input "2:1:PS/2_Generic_Mouse" {
+    accel_profile adaptive
+    pointer_accel 0.55
+    scroll_method on_button_down
+}
+
+seat * hide_cursor 3000

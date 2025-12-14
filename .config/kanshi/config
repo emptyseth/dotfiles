@@ -1,0 +1,22 @@
+output "DP-3" {
+  mode 3840x2160@60000
+  scale 1.5
+  position 0,0
+  alias $EXTERNAL
+}
+
+output "eDP-1" {
+  scale 1.2
+  position 0,0
+  alias $INTERNAL
+}
+
+profile docked {
+  output $EXTERNAL enable
+  output $INTERNAL disable
+  exec swaymsg workspace 1, move workspace to HDMI-A-1
+}
+
+profile mobile {
+  output $INTERNAL enable
+}

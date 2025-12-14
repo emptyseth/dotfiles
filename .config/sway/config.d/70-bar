@@ -1,25 +1,17 @@
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
 bar {
+    id main
     position top
     font $font
     tray_output none
     mode hide
+    modifier $mod
     gaps 10
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
     status_command while ~/.local/share/bin/bar.sh; do sleep 0.5; done
-
     colors {
         background         $base
         statusline         $text
         focused_statusline $text
         focused_separator  $base
-
-        # target           border bg        text
         focused_workspace  $base  $mauve    $crust
         active_workspace   $base  $surface2 $text
         inactive_workspace $base  $base     $text

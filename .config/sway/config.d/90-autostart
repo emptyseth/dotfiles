@@ -1,14 +1,11 @@
-# Disable xwayland
-# xwayland disable
-
 exec dex -a -e sway
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 exec dbus-update-activation-environment --all
-
-set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
   gsettings set $gnome-schema gtk-theme $GTK_THEME
   gsettings set $gnome-schema icon-theme $GTK_THEME
   gsettings set $gnome-schema cursor-theme $GTK_THEME
 }
+
+exec_always ~/.config/sway/scripts/ip-cache-loop

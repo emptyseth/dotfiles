@@ -1,0 +1,16 @@
+set $internal_display $INTERNAL_DISPLAY
+set $external_display $EXTERNAL_DISPLAY
+set $VPN_PROVIDER protonvpn
+
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term ghostty
+set $menu sh ~/.local/share/bin/launcher.sh
+set $font "Terminess Nerd Font 13"
+
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+set $gnome-schema org.gnome.desktop.interface

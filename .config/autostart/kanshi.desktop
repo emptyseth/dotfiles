@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Kanshi
+Exec=kanshi
+OnlyShowIn=sway;Wayland;
+X-GNOME-Autostart-enabled=true

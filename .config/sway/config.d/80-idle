@@ -1,0 +1,12 @@
+exec swayidle -w \
+    timeout 300 'swaylock -f' \
+    timeout 300 'swaymsg "input * xkb_switch_layout 0"' \
+    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaymsg "input * xkb_switch_layout 0" && swaylock -f'
+
+for_window [class=".*"] inhibit_idle fullscreen
+for_window [app_id=".*"] inhibit_idle fullscreen
+for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [class="Chromium"] inhibit_idle fullscreen
+for_window [app_id="mpv"] inhibit_idle
+for_window [app_id="com.emptyseth.launcher"] floating enable

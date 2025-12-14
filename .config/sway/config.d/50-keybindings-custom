@@ -1,54 +1,7 @@
-### Variables
-#
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-set $left h
-set $down j
-set $up k
-set $right l
-set $term $TERM
-set $menu sh ~/.local/share/bin/launcher.sh
-set $font "Terminess Nerd Font 13"
-
-#
-# Colors
-#
-# Set of colors used in the theme.
-### Catppuccin-Macchiato ###
-set $rosewater #f4dbd6
-set $flamingo #f0c6c6
-set $pink #f5bde6
-set $mauve #c6a0f6
-set $red #ed8796
-set $maroon #ee99a0
-set $peach #f5a97f
-set $yellow #eed49f
-set $green #a6da95
-set $teal #8bd5ca
-set $sky #91d7e3
-set $sapphire #7dc4e4
-set $blue #8aadf4
-set $lavender #b7bdf8
-set $text #cad3f5
-set $subtext1 #b8c0e0
-set $subtext0 #a5adcb
-set $overlay2 #939ab7
-set $overlay1 #8087a2
-set $overlay0 #6e738d
-set $surface2 #5b6078
-set $surface1 #494d64
-set $surface0 #363a4f
-set $base #24273a
-set $mantle #1e2030
-set $crust #181926
-
-#
-# Custom
-#
 set $lock swaylock -f
 set $print_screen grim -g "$(slurp)" - | wl-copy && notify-send -e "Screenshot taken and copied to clipboard"
-set $open_file_manager swaymsg "workspace 9; exec $TERM -e $FILE"
-set $toggle_internal_display swaymsg "output $INTERNAL_DISPLAY toggle"
+set $open_file_manager swaymsg "workspace 9; exec $term -e $FILE"
+set $toggle_internal_display swaymsg "output $internal_display toggle"
 set $start_vpn swaymsg "workspace 10; exec sh ~/.local/share/bin/vpn.sh"
 
 set $mic_mute wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
@@ -61,3 +14,27 @@ set $audio_toggle mpc toggle
 set $audio_stop mpc stop
 set $brightness_down brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 set $brightness_up brightnessctl set 5%+ | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
+
+bindsym --to-code {
+    $mod+Control+e exec $toggle_internal_display
+    Print exec $print_screen
+    $mod+o exec $lock
+    $mod+m exec $open_file_manager
+    $mod+p exec $start_vpn
+
+    $mod+Control+Shift+Right move workspace to output right
+    $mod+Control+Shift+Left move workspace to output left
+    $mod+Control+Shift+Down move workspace to output down
+    $mod+Control+Shift+Up move workspace to output up
+
+    --locked XF86AudioMicMute        exec $mic_mute
+    --locked XF86AudioMute           exec $audio_mute
+    --locked XF86AudioLowerVolume    exec $audio_lower_volume
+    --locked XF86AudioRaiseVolume    exec $audio_raise_volume
+    --locked XF86AudioNext           exec $audio_next
+    --locked XF86AudioPlay           exec $audio_toggle
+    --locked XF86AudioPrev           exec $audio_prev
+    --locked XF86AudioStop           exec $audio_stop
+    --locked XF86MonBrightnessDown   exec $brightness_down
+    --locked XF86MonBrightnessUp     exec $brightness_up
+}

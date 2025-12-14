@@ -1,0 +1,3 @@
+set $laptop $INTERNAL_DISPLAY
+bindswitch --reload --locked lid:on  output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable

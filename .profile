@@ -7,12 +7,13 @@ export BROWSER="firefox"
 export TERM="ghostty"
 export EDITOR="code-oss"
 export FILE="yazi"
-export INTERNAL_DISPLAY="LVDS-1"
-export EXTERNAL_DISPLAY="VGA-1"
+export INTERNAL_DISPLAY="eDP-1"
+export EXTERNAL_DISPLAY="DP-3"
 export VPN_PROVIDER="protonvpn"
 export GTK_THEME="Breeze-Dark"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_QPA_PLATFORM="wayland-egl"
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export FONT="Terminess Nerd Font"
 
 # Theme
@@ -85,6 +86,7 @@ export LESSHISTFILE=-
 if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
     export XDG_CURRENT_DESKTOP="sway"
     export MOZ_DBUS_REMOTE=1
+    export MOZ_ENABLE_WAYLAND=1
     export GTK_USE_PORTAL=0 
     export WOBSOCK="$XDG_RUNTIME_DIR/wob.sock"
 
